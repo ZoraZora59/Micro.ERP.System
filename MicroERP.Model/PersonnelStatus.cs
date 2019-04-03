@@ -1,9 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MicroERP.Model
 {
+	public enum Status
+	{
+		即将入职,
+		在职,
+		即将离职,
+		离职
+	}
+	public enum Department
+	{
+		销售部,
+		人事部,
+		审核部,
+		财务部,
+		运营部,
+		决策部
+	}
 	public class PersonnelStatus
 	{
 		[Display(Name = "员工编号")]
@@ -13,11 +30,11 @@ namespace MicroERP.Model
 		[Display(Name = "姓名")]
 		public string Name { get; set; }
 		[Display(Name = "所在部门")]
-		public string Department { get; set; }
+		public Department Department { get; set; }
 		[Display(Name="职位")]
 		public string Position { get; set; }
 		[Display(Name = "人事状态")]
-		public string Status { get; set; }
+		public Status Status { get; set; }
 		[Display(Name = "月薪")]
 		public int Salary { get; set; }
 		[Display(Name = "人事备注")]

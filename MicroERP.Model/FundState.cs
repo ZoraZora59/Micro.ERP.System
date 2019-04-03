@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MicroERP.Model
 {
-	public class FundState
+	public class FundState//TODO:数据库设计问题
 	{
 		[Display(Name = "资金流编号")]
 		public int FundID { get; set; }
@@ -15,14 +15,12 @@ namespace MicroERP.Model
 		public int ConfirmorID { get; set; }
 		[Display(Name = "金额")]
 		public int Amount { get; set; }
-		[Display(Name = "申请时间")]
-		public DateTime ApplyTime { get; set; }
-		[Display(Name = "生效时间")]
-		public DateTime PayTime { get; set; }
 
 		[Display(Name = "对应货单")]
 		public virtual GoodsState Goods { get; set; }
 		public virtual PersonnelStatus ApplyOne { get; set; }
 		public virtual PersonnelStatus ConfirmOne { get; set; }
+		public virtual Confirm ConfirmState { get; set; }
+		public virtual Apply ApplyState { get; set; }
 	}
 }
