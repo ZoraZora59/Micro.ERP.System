@@ -16,11 +16,7 @@ namespace MicroERP.Model
 		[Display(Name = "金额")]
 		public int Amount { get; set; }
 
-		[Display(Name = "对应货单")]
-		public virtual GoodsState Goods { get; set; }
-		public virtual PersonnelStatus ApplyOne { get; set; }
-		public virtual PersonnelStatus ConfirmOne { get; set; }
-		public virtual Confirm ConfirmState { get; set; }
-		public virtual Apply ApplyState { get; set; }
+		public virtual Confirm ConfirmOne { get; set; }
+		public virtual Apply ApplyOne { get; set; }
 	}
 }

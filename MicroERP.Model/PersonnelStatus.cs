@@ -43,8 +43,5 @@ namespace MicroERP.Model
 		public DateTime EntryTime{ get; set; }
 		[Display(Name = "最后更新时间")]
 		public DateTime UpdateTime { get; set; }
-
-		public virtual ICollection<FundState> FundState { get; set; }
-		public virtual ICollection<GoodsState> GoodsState { get; set; }
 	}
 }

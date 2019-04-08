@@ -13,6 +13,5 @@ namespace MicroERP.Model
 		[MaxLength(400, ErrorMessage = "{0}最大长度{1}")]
 		[Display(Name = "下单备注")]
 		public string ApplyNote { get; set; }
-		
 	}
 }

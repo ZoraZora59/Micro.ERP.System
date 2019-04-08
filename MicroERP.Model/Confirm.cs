@@ -13,8 +13,5 @@ namespace MicroERP.Model
 		[MaxLength(400, ErrorMessage = "{0}最大长度{1}")]
 		[Display(Name = "审核备注")]
 		public string ConfirmNote { get; set; }
-
-		public virtual FundState FundState { get; set; }
-		public virtual GoodsState GoodsState { get; set; }
 	}
 }

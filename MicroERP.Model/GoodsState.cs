@@ -18,13 +18,9 @@ namespace MicroERP.Model
 		[Required(ErrorMessage = "{0}必须填写")]
 		[Display(Name = "货物量")]
 		public int AmountOfCargo { get; set; }
-		
-		
-
-		
 
 		public virtual FundState FundState { get; set; }
-		public virtual PersonnelStatus ApplyOne{ get; set; }
-		public virtual PersonnelStatus ConfirmOne { get; set; }
+		public virtual Apply ApplyOne{ get; set; }
+		public virtual Confirm ConfirmOne { get; set; }
 	}
 }
