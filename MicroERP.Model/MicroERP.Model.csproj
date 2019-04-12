@@ -42,11 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Apply.cs" />
-    <Compile Include="Confirm.cs" />
-    <Compile Include="FundState.cs" />
-    <Compile Include="GoodsState.cs" />
-    <Compile Include="PersonnelStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
