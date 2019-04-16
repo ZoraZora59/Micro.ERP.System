@@ -17,17 +17,14 @@ namespace MicroERP.DAL
             {
                 var self= db.UserSelfInfo.Add(userSelf);
                 db.SaveChanges();
-                initNewUserLoginInfo(self.UserID,db);
             }
         }
-        private void initNewUserLoginInfo(int uid , MicroERPEntities db)
+        public List<MicroERP.Model.UserLogin> GetList()
         {
-            db.UserLoginInfo.Add(new UserLoginInfo
+            using (MicroERPEntities db = new MicroERPEntities())
             {
-                UserID =uid,
-                UserPassword="000000"
-            });
-            db.SaveChanges();
+                return db.UserLogin.ToList();
+            }
         }
     }
 }

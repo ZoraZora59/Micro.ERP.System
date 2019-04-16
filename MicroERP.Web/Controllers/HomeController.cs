@@ -35,5 +35,11 @@ namespace MicroERP.Web.Controllers
             userManage.CreateNewEmployee(model);
             return View();
         }
+        public ActionResult ViewList()
+        {
+            UserManage userManage = new UserManage();
+            var model=userManage.GetList();
+            return View(model);
+        }
 	}
 }

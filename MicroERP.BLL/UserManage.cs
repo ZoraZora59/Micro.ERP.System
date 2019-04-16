@@ -18,5 +18,10 @@ namespace MicroERP.BLL
             userData.CreateNew(userSelfInfo);
             return IsSuccess;
         }
+        public List<UserLogin> GetList()
+        {
+            var us = new UserData();
+            return us.GetList();
+        }
     }
 }
