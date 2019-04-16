@@ -22,6 +22,7 @@ CREATE TABLE FundsSalaryInfo
     BaseSalary DECIMAL(19,4) NOT NULL ,
     PerformanceBonus DECIMAL(19,4) NOT NULL ,
     ViolationRecordID INT FOREIGN KEY REFERENCES EmployeeViolationInfo(RecordID),
+    RealWage DECIMAL(19,4) NOT NULL ,
     PayWagesDate DATETIME NOT NULL DEFAULT GETDATE()
 )
 CREATE TABLE FundsGoodsInfo
