@@ -5,14 +5,14 @@ CREATE TABLE UserSelfInfo
     UserName VARCHAR(12) NOT NULL ,
     UserPhoneNumber VARCHAR(14) NOT NULL ,
     UserAddress VARCHAR(128),
-    SelfIntroduction VARCHAR(512) default '很高兴认识大家',
-    ProfilePictureAddress VARCHAR(512)
-)
-CREATE TABLE UserLoginInfo
-(
-    UserID INT NOT NULL FOREIGN KEY REFERENCES UserSelfInfo(UserID) ,
+    SelfIntroduction VARCHAR(512) DEFAULT '很高兴认识大家',
+    ProfilePictureAddress VARCHAR(512),
     UserPassword VARCHAR(32) NOT NULL,
-    UserEmail VARCHAR(64) NOT NULL default '@.com'
+    UserEmail VARCHAR(64)  DEFAULT '@.com',
+    UserDepartment VARCHAR(24) NOT NULL ,
+    UserPosition VARCHAR(24) NOT NULL ,
+    UserSalary DECIMAL(19,4) NOT NULL ,
+    UserStatus VARCHAR(24) NOT NULL ,
 )
 CREATE TABLE UserUpdateInfo
 (
@@ -24,12 +24,3 @@ CREATE TABLE UserUpdateInfo
     UpdateInto VARCHAR(24) NOT NULL ,
     UpdateInformation VARCHAR(512)
 )
-CREATE TABLE UserResourceInfo
-(
-    UserID INT NOT NULL FOREIGN KEY REFERENCES UserSelfInfo(UserID) ,
-    UserDepartment VARCHAR(24) NOT NULL ,
-    UserPosition VARCHAR(24) NOT NULL ,
-    UserSalary DECIMAL(19,4) NOT NULL ,
-    UserStatus VARCHAR(24) NOT NULL ,
-)
-

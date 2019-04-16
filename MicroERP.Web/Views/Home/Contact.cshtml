@@ -1,4 +1,5 @@
-﻿@{
+﻿@model MicroERP.Model.UserSelfInfo
+@{
     ViewBag.Title = "Contact";
 }
 <h2>@ViewBag.Title.</h2>
@@ -10,7 +11,14 @@
     <abbr title="Phone">P:</abbr>
     425.555.0100
 </address>
-
+@Html.BeginForm()
+{
+姓名：
+@Html.TextBoxFor(model => model.UserName)
+手机号：
+@Html.TextBoxFor(model=>model.UserPhoneNumber)
+<input type="submit" plain="true" value="提交更新" />
+}
 <address>
     <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
     <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>

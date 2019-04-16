@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{271755AB-7414-47B7-9662-578658179F2C}</ProjectGuid>
+    <ProjectGuid>{FF00C947-BB1C-4140-9BEF-B57BB37D60BF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MicroERP.Model</RootNamespace>
@@ -104,32 +104,30 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <EntityDeploy Include="Database.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Database.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="Database.edmx.diagram">
       <DependentUpon>Database.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Database.Context.cs</LastGenOutput>
       <DependentUpon>Database.edmx</DependentUpon>
+      <LastGenOutput>Database.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Database.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Database.edmx</DependentUpon>
       <LastGenOutput>Database.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

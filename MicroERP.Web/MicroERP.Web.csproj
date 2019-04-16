@@ -58,9 +58,6 @@
     <Reference Include="MySql.Data, Version=8.0.15.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.15\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data.Entity.EF6, Version=6.10.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.Entity.6.10.8\lib\net452\MySql.Data.Entity.EF6.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel" />
     <Reference Include="System.Configuration.Install" />
@@ -208,6 +205,16 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MicroERP.BLL\MicroERP.BLL.csproj">
+      <Project>{C570B7F4-F1FF-4F87-9CBB-70F3C066864A}</Project>
+      <Name>MicroERP.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MicroERP.Model\MicroERP.Model.csproj">
+      <Project>{FF00C947-BB1C-4140-9BEF-B57BB37D60BF}</Project>
+      <Name>MicroERP.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

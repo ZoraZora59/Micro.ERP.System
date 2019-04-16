@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C570B7F4-F1FF-4F87-9CBB-70F3C066864A}</ProjectGuid>
+    <ProjectGuid>{E1C4385B-271C-4090-97B9-D20C84FD4493}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MicroERP.BLL</RootNamespace>
-    <AssemblyName>MicroERP.BLL</AssemblyName>
+    <RootNamespace>MicroERP.IDAL</RootNamespace>
+    <AssemblyName>MicroERP.IDAL</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,18 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserManage.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MicroERP.DAL\MicroERP.DAL.csproj">
-      <Project>{87BDE9B8-3117-4F18-B479-95318CA49D57}</Project>
-      <Name>MicroERP.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MicroERP.IDAL\MicroERP.IDAL.csproj">
-      <Project>{E1C4385B-271C-4090-97B9-D20C84FD4493}</Project>
-      <Name>MicroERP.IDAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MicroERP.Model\MicroERP.Model.csproj">
       <Project>{FF00C947-BB1C-4140-9BEF-B57BB37D60BF}</Project>
       <Name>MicroERP.Model</Name>

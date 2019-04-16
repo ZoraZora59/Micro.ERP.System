@@ -66,10 +66,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MicroERP.IDAL\MicroERP.IDAL.csproj">
+      <Project>{E1C4385B-271C-4090-97B9-D20C84FD4493}</Project>
+      <Name>MicroERP.IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MicroERP.Model\MicroERP.Model.csproj">
+      <Project>{FF00C947-BB1C-4140-9BEF-B57BB37D60BF}</Project>
+      <Name>MicroERP.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
