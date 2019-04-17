@@ -17,7 +17,7 @@ namespace MicroERP.Web.Areas.System
             context.MapRoute(
                 "System_default",
                 "System/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new {Controller="Main", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

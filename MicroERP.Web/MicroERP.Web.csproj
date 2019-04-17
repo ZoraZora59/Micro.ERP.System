@@ -144,7 +144,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\System\Controllers\HomeController.cs" />
+    <Compile Include="Areas\System\Controllers\MainController.cs" />
     <Compile Include="Areas\System\SystemAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1732,7 +1732,7 @@
     <Content Include="Areas\System\Views\web.config" />
     <Content Include="Areas\System\Views\_ViewStart.cshtml" />
     <Content Include="Areas\System\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\System\Views\Home\Index.cshtml" />
+    <Content Include="Areas\System\Views\Main\Index.cshtml" />
     <Content Include="Areas\System\Content\vendor\bootstrap\js\bootstrap.bundle.js.map" />
     <Content Include="Areas\System\Content\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
     <Content Include="Areas\System\Content\vendor\bootstrap\js\bootstrap.js.map" />
