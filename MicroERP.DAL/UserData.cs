@@ -9,22 +9,24 @@ using System.Threading.Tasks;
 
 namespace MicroERP.DAL
 {
-    public class UserData : IERPDAL
+    public class UserData //: IUserData
     {
-        void IERPDAL.CreateNew(UserSelfInfo userSelf)
-        {
-            using (MicroERPEntities db = new MicroERPEntities())
-            {
-                var self= db.UserSelfInfo.Add(userSelf);
-                db.SaveChanges();
-            }
-        }
-        public List<MicroERP.Model.UserLogin> GetList()
-        {
-            using (MicroERPEntities db = new MicroERPEntities())
-            {
-                return db.UserLogin.ToList();
-            }
-        }
+        //void IUserData.CreateEmployee(UserSelfInfo userSelf)
+        //{
+        //    using (MicroERPEntities db = new MicroERPEntities())
+        //    {
+        //        var self= db.UserSelfInfo.Add(userSelf);
+        //        db.SaveChanges();
+        //    }
+        //}
+
+        //public List<MicroERP.Model.UserLogin> GetList()
+        //{
+        //    using (MicroERPEntities db = new MicroERPEntities())
+        //    {
+        //        return db.UserLogin.ToList();
+        //    }
+        //}
+        
     }
 }

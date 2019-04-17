@@ -14,14 +14,14 @@ namespace MicroERP.BLL
         public bool CreateNewEmployee(UserSelfInfo userSelfInfo)
         {
             bool IsSuccess = false;
-            IERPDAL userData = new UserData();
-            userData.CreateNew(userSelfInfo);
+            //IUserData userData = new UserData();
+            //userData.CreateEmployee(userSelfInfo);
             return IsSuccess;
         }
-        public List<UserLogin> GetList()
-        {
-            var us = new UserData();
-            return us.GetList();
-        }
+        //public List<UserLogin> GetList()
+        //{
+        //    var us = new UserData();
+        //    return us.GetList();
+        //}
     }
 }

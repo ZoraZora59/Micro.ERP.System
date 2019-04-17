@@ -38,6 +38,7 @@ namespace MicroERP.Model
         public string UserPosition { get; set; }
         public decimal UserSalary { get; set; }
         public string UserStatus { get; set; }
+        public Nullable<System.DateTime> OfferDate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmployeeViolationInfo> EmployeeViolationInfo { get; set; }

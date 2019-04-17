@@ -41,5 +41,7 @@ namespace MicroERP.Model
         public virtual DbSet<GoodsApplyOrder> GoodsApplyOrder { get; set; }
         public virtual DbSet<GoodsConfirm> GoodsConfirm { get; set; }
         public virtual DbSet<UserLogin> UserLogin { get; set; }
+        public virtual DbSet<EmployeeView> EmployeeView { get; set; }
+        public virtual DbSet<UserSelf> UserSelf { get; set; }
     }
 }

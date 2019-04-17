@@ -35,6 +35,8 @@
         <AssociationConnector Association="MicroERPModel.FK__GoodsReje__Rejec__66B53B20" ManuallyRouted="false" />
         <AssociationConnector Association="MicroERPModel.FK__GoodsReje__Rejec__689D8392" ManuallyRouted="false" />
         <AssociationConnector Association="MicroERPModel.FK__UserUpdat__UserI__5772F790" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MicroERPModel.EmployeeView" Width="1.5" PointX="5.375" PointY="12.75" />
+        <EntityTypeShape EntityType="MicroERPModel.UserSelf" Width="1.5" PointX="7.375" PointY="12.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -71,6 +71,9 @@
     <Compile Include="EmployeeSalary.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeView.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeViolationInfo.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -106,6 +109,9 @@
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="UserLogin.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserSelf.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="UserSelfInfo.cs">

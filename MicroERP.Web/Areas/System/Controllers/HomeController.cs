@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace MicroERP.Web.Areas.System.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : Controller  
     {
         // GET: System/Home
         public ActionResult Index()

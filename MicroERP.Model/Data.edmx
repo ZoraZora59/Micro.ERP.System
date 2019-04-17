@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MicroERPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MicroERPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="EmployeeViolationInfo">
           <Key>
             <PropertyRef Name="RecordID" />
@@ -122,6 +122,7 @@
           <Property Name="UserPosition" Type="varchar" MaxLength="24" Nullable="false" />
           <Property Name="UserSalary" Type="decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="UserStatus" Type="varchar" MaxLength="24" Nullable="false" />
+          <Property Name="OfferDate" Type="date" />
         </EntityType>
         <EntityType Name="UserUpdateInfo">
           <Key>
@@ -140,6 +141,12 @@
         <EntityType Name="EmployeeResource">
           <Key>
             <PropertyRef Name="用户编号" />
+            
+            
+            
+            
+            
+            
           </Key>
           <Property Name="用户编号" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="姓名" Type="varchar" MaxLength="12" Nullable="false" />
@@ -160,6 +167,14 @@
             <PropertyRef Name="用户编号" />
             <PropertyRef Name="工资单编号" />
             <PropertyRef Name="违规记录编号" />
+            
+            
+            
+            
+            
+            
+            
+            
           </Key>
           <Property Name="用户编号" Type="int" Nullable="false" />
           <Property Name="工资单编号" Type="int" Nullable="false" />
@@ -175,12 +190,31 @@
           <Property Name="发薪时间" Type="datetime" />
         </EntityType>
         <!--生成过程中发现错误:
+警告 6002: 表/视图“MicroERP.dbo.EmployeeView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="EmployeeView">
+          <Key>
+            <PropertyRef Name="员工编号" />
+          </Key>
+          <Property Name="员工编号" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="姓名" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="所属部门" Type="varchar" MaxLength="24" Nullable="false" />
+          <Property Name="职位" Type="varchar" MaxLength="24" Nullable="false" />
+          <Property Name="薪资" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="在职状态" Type="varchar" MaxLength="24" Nullable="false" />
+          <Property Name="入职时间" Type="date" />
+        </EntityType>
+        <!--生成过程中发现错误:
 警告 6002: 表/视图“MicroERP.dbo.GoodsApplyOrder”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="GoodsApplyOrder">
           <Key>
             <PropertyRef Name="订单号" />
             <PropertyRef Name="货物号" />
+            
+            
+            
+            
             <PropertyRef Name="销售员编号" />
+            
           </Key>
           <Property Name="订单号" Type="int" Nullable="false" />
           <Property Name="货物号" Type="int" Nullable="false" />
@@ -199,7 +233,14 @@
             <PropertyRef Name="订单号" />
             <PropertyRef Name="确认号" />
             <PropertyRef Name="货物号" />
+            
+            
+            
+            
             <PropertyRef Name="销售员编号" />
+            
+            
+            
           </Key>
           <Property Name="订单号" Type="int" Nullable="false" />
           <Property Name="确认号" Type="int" Nullable="false" />
@@ -222,9 +263,25 @@
         <EntityType Name="UserLogin">
           <Key>
             <PropertyRef Name="用户编号" />
+            
           </Key>
           <Property Name="用户编号" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="登录密码" Type="varchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“MicroERP.dbo.UserSelf”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="UserSelf">
+          <Key>
+            <PropertyRef Name="员工编号" />
+          </Key>
+          <Property Name="员工编号" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="姓名" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="手机号" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="联系地址" Type="varchar" MaxLength="128" />
+          <Property Name="自我介绍" Type="varchar" MaxLength="512" />
+          <Property Name="头像链接" Type="varchar" MaxLength="512" />
+          <Property Name="电子邮箱" Type="varchar" MaxLength="64" />
+          <Property Name="密码" Type="varchar" MaxLength="32" Nullable="false" />
         </EntityType>
         <Association Name="FK__EmployeeV__Viola__6F4A8121">
           <End Role="UserSelfInfo" Type="Self.UserSelfInfo" Multiplicity="1" />
@@ -437,6 +494,17 @@
     [EmployeeSalary].[发薪时间] AS [发薪时间]
     FROM [dbo].[EmployeeSalary] AS [EmployeeSalary]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="EmployeeView" EntityType="Self.EmployeeView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [EmployeeView].[员工编号] AS [员工编号], 
+    [EmployeeView].[姓名] AS [姓名], 
+    [EmployeeView].[所属部门] AS [所属部门], 
+    [EmployeeView].[职位] AS [职位], 
+    [EmployeeView].[薪资] AS [薪资], 
+    [EmployeeView].[在职状态] AS [在职状态], 
+    [EmployeeView].[入职时间] AS [入职时间]
+    FROM [dbo].[EmployeeView] AS [EmployeeView]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="GoodsApplyOrder" EntityType="Self.GoodsApplyOrder" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [GoodsApplyOrder].[订单号] AS [订单号], 
@@ -474,6 +542,18 @@
     [UserLogin].[用户编号] AS [用户编号], 
     [UserLogin].[登录密码] AS [登录密码]
     FROM [dbo].[UserLogin] AS [UserLogin]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="UserSelf" EntityType="Self.UserSelf" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [UserSelf].[员工编号] AS [员工编号], 
+    [UserSelf].[姓名] AS [姓名], 
+    [UserSelf].[手机号] AS [手机号], 
+    [UserSelf].[联系地址] AS [联系地址], 
+    [UserSelf].[自我介绍] AS [自我介绍], 
+    [UserSelf].[头像链接] AS [头像链接], 
+    [UserSelf].[电子邮箱] AS [电子邮箱], 
+    [UserSelf].[密码] AS [密码]
+    FROM [dbo].[UserSelf] AS [UserSelf]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__EmployeeV__Viola__6F4A8121" Association="Self.FK__EmployeeV__Viola__6F4A8121">
             <End Role="UserSelfInfo" EntitySet="UserSelfInfo" />
@@ -532,8 +612,7 @@
             <End Role="UserUpdateInfo" EntitySet="UserUpdateInfo" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MicroERPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -668,6 +747,7 @@
           <NavigationProperty Name="GoodsOrderInfo" Relationship="Self.FK__GoodsOrde__Goods__61F08603" FromRole="UserSelfInfo" ToRole="GoodsOrderInfo" />
           <NavigationProperty Name="GoodsRejectedOrderInfo" Relationship="Self.FK__GoodsReje__Rejec__689D8392" FromRole="UserSelfInfo" ToRole="GoodsRejectedOrderInfo" />
           <NavigationProperty Name="UserUpdateInfo" Relationship="Self.FK__UserUpdat__UserI__5772F790" FromRole="UserSelfInfo" ToRole="UserUpdateInfo" />
+          <Property Name="OfferDate" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="UserUpdateInfo">
           <Key>
@@ -891,7 +971,34 @@
             <End Role="UserSelfInfo" EntitySet="UserSelfInfo" />
             <End Role="UserUpdateInfo" EntitySet="UserUpdateInfo" />
           </AssociationSet>
+          <EntitySet Name="EmployeeView" EntityType="MicroERPModel.EmployeeView" />
+          <EntitySet Name="UserSelf" EntityType="MicroERPModel.UserSelf" />
         </EntityContainer>
+        <EntityType Name="EmployeeView">
+          <Key>
+            <PropertyRef Name="员工编号" />
+          </Key>
+          <Property Name="员工编号" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="姓名" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="所属部门" Type="String" Nullable="false" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="职位" Type="String" Nullable="false" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="薪资" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="在职状态" Type="String" Nullable="false" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="入职时间" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="UserSelf">
+          <Key>
+            <PropertyRef Name="员工编号" />
+          </Key>
+          <Property Name="员工编号" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="姓名" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="手机号" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="联系地址" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="自我介绍" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="头像链接" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="电子邮箱" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="密码" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -998,6 +1105,7 @@
           <EntitySetMapping Name="UserSelfInfo">
             <EntityTypeMapping TypeName="MicroERPModel.UserSelfInfo">
               <MappingFragment StoreEntitySet="UserSelfInfo">
+                <ScalarProperty Name="OfferDate" ColumnName="OfferDate" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="UserPhoneNumber" ColumnName="UserPhoneNumber" />
@@ -1220,6 +1328,33 @@
               <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="EmployeeView">
+            <EntityTypeMapping TypeName="MicroERPModel.EmployeeView">
+              <MappingFragment StoreEntitySet="EmployeeView">
+                <ScalarProperty Name="入职时间" ColumnName="入职时间" />
+                <ScalarProperty Name="在职状态" ColumnName="在职状态" />
+                <ScalarProperty Name="薪资" ColumnName="薪资" />
+                <ScalarProperty Name="职位" ColumnName="职位" />
+                <ScalarProperty Name="所属部门" ColumnName="所属部门" />
+                <ScalarProperty Name="姓名" ColumnName="姓名" />
+                <ScalarProperty Name="员工编号" ColumnName="员工编号" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserSelf">
+            <EntityTypeMapping TypeName="MicroERPModel.UserSelf">
+              <MappingFragment StoreEntitySet="UserSelf">
+                <ScalarProperty Name="密码" ColumnName="密码" />
+                <ScalarProperty Name="电子邮箱" ColumnName="电子邮箱" />
+                <ScalarProperty Name="头像链接" ColumnName="头像链接" />
+                <ScalarProperty Name="自我介绍" ColumnName="自我介绍" />
+                <ScalarProperty Name="联系地址" ColumnName="联系地址" />
+                <ScalarProperty Name="手机号" ColumnName="手机号" />
+                <ScalarProperty Name="姓名" ColumnName="姓名" />
+                <ScalarProperty Name="员工编号" ColumnName="员工编号" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
