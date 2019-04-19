@@ -12,18 +12,19 @@ namespace MicroERP.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class EmployeeResource
+    public partial class ViewEmployeeSalary
     {
         public int 用户编号 { get; set; }
+        public int 工资单编号 { get; set; }
+        public int 违规记录编号 { get; set; }
         public string 姓名 { get; set; }
-        public string 头像 { get; set; }
         public string 所属部门 { get; set; }
         public string 职位 { get; set; }
         public decimal 预期薪资 { get; set; }
-        public string 在职状态 { get; set; }
-        public string 联系电话 { get; set; }
-        public string 住址 { get; set; }
-        public string 个人介绍 { get; set; }
-        public string Email { get; set; }
+        public decimal 基本工资 { get; set; }
+        public decimal 绩效奖金 { get; set; }
+        public decimal 违规罚款 { get; set; }
+        public decimal 实发工资 { get; set; }
+        public Nullable<System.DateTime> 发薪时间 { get; set; }
     }
 }

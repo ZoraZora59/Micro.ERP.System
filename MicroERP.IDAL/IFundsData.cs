@@ -15,12 +15,12 @@ namespace MicroERP.IDAL
 
         TotalAssetsInfo GetTotalAssetsNow();//获取最新总资产记录
         EmployeeViolationInfo GetEmployeeViolationInfo(int recordID);//按记录号获取员工违规记录
-        EmployeeSalary GetEmployeeSalaryBySalaryID(int salaryID);//按工资单号获取工资单详情
-        EmployeeSalary GetEmployeeSalaryByUserID(int userID);//按员工号获取最新工资单
+        ViewEmployeeSalary GetEmployeeSalaryBySalaryID(int salaryID);//按工资单号获取工资单详情
+        ViewEmployeeSalary GetEmployeeSalaryByUserID(int userID);//按员工号获取最新工资单
         FundsGoodsInfo GetFundsGoodsInfo(int fundsGoodsInfoID);//按资金编号获取资金单信息
 
         List<TotalAssetsInfo> GetTotalAssetsInfos();//获取总资产变化清单
-        List<EmployeeSalary> GetEmployeeSalaries();//获取所有员工工资表
+        List<ViewEmployeeSalary> GetEmployeeSalaries();//获取所有员工工资表
         List<EmployeeViolationInfo> GetEmployeeViolationInfosByUserID(int userID);//按员工编号获取员工的违规记录
         List<EmployeeViolationInfo> GetEmployeeViolationInfosByDate(int year, int month);//按时间获取所有员工的当月违规记录
         List<EmployeeViolationInfo> GetEmployeeViolationInfos();//获取违规记录总清单

@@ -12,16 +12,14 @@ namespace MicroERP.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class GoodsApplyOrder
+    public partial class ViewEmployee
     {
-        public int 订单号 { get; set; }
-        public int 货物号 { get; set; }
-        public string 货物名 { get; set; }
-        public long 订单货量 { get; set; }
-        public string 货物目标 { get; set; }
-        public int 单价 { get; set; }
-        public int 销售员编号 { get; set; }
-        public string 销售员姓名 { get; set; }
-        public Nullable<System.DateTime> 下单时间 { get; set; }
+        public int 员工编号 { get; set; }
+        public string 姓名 { get; set; }
+        public string 所属部门 { get; set; }
+        public string 职位 { get; set; }
+        public decimal 薪资 { get; set; }
+        public string 在职状态 { get; set; }
+        public Nullable<System.DateTime> 入职时间 { get; set; }
     }
 }

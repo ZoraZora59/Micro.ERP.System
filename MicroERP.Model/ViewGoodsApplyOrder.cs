@@ -12,12 +12,16 @@ namespace MicroERP.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class ViewGoodsApplyOrder
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int 订单号 { get; set; }
+        public int 货物号 { get; set; }
+        public string 货物名 { get; set; }
+        public long 订单货量 { get; set; }
+        public string 货物目标 { get; set; }
+        public int 单价 { get; set; }
+        public int 销售员编号 { get; set; }
+        public string 销售员姓名 { get; set; }
+        public Nullable<System.DateTime> 下单时间 { get; set; }
     }
 }
