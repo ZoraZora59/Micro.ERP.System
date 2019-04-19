@@ -6,6 +6,7 @@ namespace MicroERP.Model
 {
     public class InfoGoodsOrder
     {
+        [Key]
         [Required]
         [Display(Name = "»õµ¥±àºÅ")]
         public int OrderID { get; set; }

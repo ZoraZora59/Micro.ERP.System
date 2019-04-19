@@ -6,6 +6,7 @@ namespace MicroERP.Model
 {
     public class InfoGoodsResource
     {
+        [Key]
         [Required]
         [Display(Name = "货物编号")]
         public int GoodsID { get; set; }

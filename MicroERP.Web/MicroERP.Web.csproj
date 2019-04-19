@@ -55,9 +55,6 @@
       <HintPath>..\packages\Google.Protobuf.3.5.1\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="MySql.Data, Version=8.0.15.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.8.0.15\lib\net452\MySql.Data.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel" />
     <Reference Include="System.Configuration.Install" />
@@ -153,6 +150,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\MicroERP.mdf" />
+    <Content Include="App_Data\MicroERP_log.ldf">
+      <DependentUpon>MicroERP.mdf</DependentUpon>
+    </Content>
     <Content Include="Areas\System\Content\css\system-admin.css" />
     <Content Include="Areas\System\Content\css\system-admin.min.css" />
     <Content Include="Areas\System\Content\js\demo\chart-area-demo.js" />
@@ -1914,7 +1915,6 @@
     <Content Include="Views\Home\ViewList.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Areas\System\Models\" />
     <Folder Include="Models\" />
   </ItemGroup>
@@ -1935,6 +1935,10 @@
     <ProjectReference Include="..\MicroERP.BLL\MicroERP.BLL.csproj">
       <Project>{C570B7F4-F1FF-4F87-9CBB-70F3C066864A}</Project>
       <Name>MicroERP.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MicroERP.DAL\MicroERP.DAL.csproj">
+      <Project>{87bde9b8-3117-4f18-b479-95318ca49d57}</Project>
+      <Name>MicroERP.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\MicroERP.Model\MicroERP.Model.csproj">
       <Project>{FF00C947-BB1C-4140-9BEF-B57BB37D60BF}</Project>

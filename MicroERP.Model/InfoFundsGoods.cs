@@ -6,6 +6,7 @@ namespace MicroERP.Model
 {
     public class InfoFundsGoods
     {
+        [Key]
         [Required]
         [Display(Name = "货流资金编号")]
         public int FundsForGoodsID { get; set; }

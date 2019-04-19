@@ -6,6 +6,7 @@ namespace MicroERP.Model
 {
     public class InfoGoodsConfirm
     {
+        [Key]
         [Required]
         [Display(Name = "确认单编号")]
         public int ConfirmID { get; set; }
@@ -23,16 +24,9 @@ namespace MicroERP.Model
         [Required]
         [Display(Name = "检查员编号")]
         public int UserID { get; set; }
-        [Display(Name = "货单编号")]
-        public int OrderID { get; set; }
-        [Display(Name = "驳回单编号")]
-        public int RejectID { get; set; }
-        [Display(Name = "资金单编号")]
-        public int FundsForGoodsID { get; set; }
+        [Display(Name = "目标单编号")]
+        public int ConfirmOrderID { get; set; }
     
         public virtual InfoUserSelf UserSelfInfo { get; set; }
-        public virtual InfoGoodsOrder GoodsOrderInfo { get; set; }
-        public virtual InfoGoodsRejectedOrder GoodsRejectedOrderInfo { get; set; }
-        public virtual InfoFundsGoods InfoFundsGoods { get; set; }
     }
 }

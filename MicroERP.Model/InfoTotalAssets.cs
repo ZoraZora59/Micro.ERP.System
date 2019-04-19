@@ -6,6 +6,7 @@ namespace MicroERP.Model
 {
     public class InfoTotalAssets
     {
+        [Key]
         [Required]
         [Display(Name = "资产变化记录编号")]
         public int AssetsUpdateID { get; set; }

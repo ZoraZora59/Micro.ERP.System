@@ -7,6 +7,7 @@ namespace MicroERP.Model
 {
     public class InfoEmployeeViolation
     {
+        [Key]
         [Required]
         [Display(Name = "记录编号")]
         public int RecordID { get; set; }

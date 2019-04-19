@@ -6,6 +6,7 @@ namespace MicroERP.Model
 {
     public class InfoFundsSalary
     {
+        [Key]
         [Required]
         [Display(Name = "工资单编号")]
         public int SalaryID { get; set; }

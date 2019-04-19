@@ -7,6 +7,7 @@ namespace MicroERP.Model
 {
     public class InfoUserSelf
     {
+        [Key]
         [Display(Name = "员工编号")]
         [Required]
         public int UserID { get; set; }

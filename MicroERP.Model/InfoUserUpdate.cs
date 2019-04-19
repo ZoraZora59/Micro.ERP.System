@@ -6,6 +6,7 @@ namespace MicroERP.Model
 {
     public class InfoUserUpdate
     {
+        [Key]
         [Required]
         [Display(Name = "更新记录编号")]
         public int UpdateID { get; set; }

@@ -6,6 +6,7 @@ namespace MicroERP.Model
 {
     public class InfoGoodsRejectedOrder
     {
+        [Key]
         [Display(Name = "重审编号")]
         [Required]
         public int RejectID { get; set; }
@@ -16,7 +17,7 @@ namespace MicroERP.Model
         [Required]
         public string RejectNote { get; set; }
 
-        [Display(Name = "发起单号")]
+        [Display(Name = "发起重审的确认单号")]
         [Required]
         public string ConfirmID { get; set; }
         [Display(Name = "货单编号")]
