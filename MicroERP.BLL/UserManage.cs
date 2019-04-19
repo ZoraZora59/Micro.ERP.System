@@ -11,7 +11,7 @@ namespace MicroERP.BLL
 {
     public class UserManage
     {
-        public bool CreateNewEmployee(UserSelfInfo userSelfInfo)
+        public bool CreateNewEmployee(InfoUserSelf userSelfInfo)
         {
             bool IsSuccess = false;
             //IUserData userData = new UserData();

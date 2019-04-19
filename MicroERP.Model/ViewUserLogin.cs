@@ -12,7 +12,7 @@ namespace MicroERP.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class UserLogin
+    public partial class ViewUserLogin
     {
         public int 用户编号 { get; set; }
         public string 登录密码 { get; set; }

@@ -29,7 +29,7 @@ namespace MicroERP.Web.Controllers
 			return View();
 		}
         [HttpPost]
-        public ActionResult Contact(UserSelfInfo model)
+        public ActionResult Contact(InfoUserSelf model)
         {
             UserManage userManage = new UserManage();
             userManage.CreateNewEmployee(model);

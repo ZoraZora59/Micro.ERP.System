@@ -12,15 +12,15 @@ namespace MicroERP.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class FundsSalaryInfo
+    public partial class ViewUserSelf
     {
-        public int SalaryID { get; set; }
-        public decimal BaseSalary { get; set; }
-        public decimal PerformanceBonus { get; set; }
-        public decimal RealWage { get; set; }
-        public Nullable<System.DateTime> PayWagesDate { get; set; }
-    
-        public virtual EmployeeViolationInfo EmployeeViolationInfo { get; set; }
-        public virtual UserSelfInfo UserSelfInfo { get; set; }
+        public int 员工编号 { get; set; }
+        public string 姓名 { get; set; }
+        public string 手机号 { get; set; }
+        public string 联系地址 { get; set; }
+        public string 自我介绍 { get; set; }
+        public string 头像链接 { get; set; }
+        public string 电子邮箱 { get; set; }
+        public string 密码 { get; set; }
     }
 }
