@@ -21,25 +21,23 @@ namespace MicroERP.Web.Controllers
 
 			return View();
 		}
-        [HttpGet]
 		public ActionResult Contact()
 		{
 			ViewBag.Message = "Your contact page.";
 
 			return View();
 		}
-        [HttpPost]
-        public ActionResult Contact(InfoUserSelf model)
+        public ActionResult SuccessfulCase()
         {
-            UserManage userManage = new UserManage();
-            userManage.CreateNewEmployee(model);
             return View();
         }
-        //public ActionResult ViewList()
-        //{
-        //    UserManage userManage = new UserManage();
-        //    var model=userManage.GetList();
-        //    return View(model);
-        //}
+        public ActionResult Partner()
+        {
+            return View();
+        }
+        public ActionResult LetsDO()
+        {
+            return View();
+        }
 	}
 }
