@@ -55,7 +55,7 @@
             </div>
 
             <div class="form-label-group">
-                @Html.TextBoxFor(c => c.Password, new { @class = "form-control", id = "inputPassword", placeholder = "User Password", required = "", style = "ime-mode:disabled", autofocus = "" })
+                @Html.TextBoxFor(c => c.Password, new { @class = "form-control",type="password",id = "inputPassword", placeholder = "User Password", required = "", style = "ime-mode:disabled", autofocus = "" })
                 <label for="inputPassword"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">密码</font></font></label>
                 @Html.ValidationMessageFor(m => m.Password)
             </div>

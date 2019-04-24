@@ -58,6 +58,7 @@
     <Compile Include="InfoGoodsResource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="InfoTotalAssets.cs" />
+    <Compile Include="ViewUserAsEmployee.cs" />
     <Compile Include="ViewUserLogin.cs" />
     <Compile Include="ViewUserSelf.cs" />
     <Compile Include="InfoUserSelf.cs" />

@@ -25,11 +25,11 @@ namespace MicroERP.BLL
             return IsSuccess;
         }
 
-        public UserLoginForm Login(UserLoginForm model)
+        public ViewUserAsEmployee Login(UserLoginForm model)
         {
             var userLogin = userData.GetUserLogin(model.UserID);
             if (model.Password == userLogin.UserPassword)
-                return model;
+                return userData.GetUserAsEmployee(model.UserID);
             return null;
         }
         //public List<UserLogin> GetList()

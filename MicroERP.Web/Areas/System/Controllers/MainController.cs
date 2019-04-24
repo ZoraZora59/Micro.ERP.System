@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using MicroERP.BLL;
 using MicroERP.BLL.App_Code;
 using MicroERP.BLL.Models;
+using MicroERP.Model;
 
 namespace MicroERP.Web.Areas.System.Controllers
 {
@@ -13,12 +14,18 @@ namespace MicroERP.Web.Areas.System.Controllers
     {
         public ActionResult Index()
         {
+            GetSessionInfo();
             return View();
         }
         [HttpGet]
         public ActionResult Login()
         {
             return View();
+        }
+        public void GetSessionInfo()
+        {
+            var currentLoginUser = (ViewUserAsEmployee)Session["loginuser"];
+            ViewBag.currentLoginInfo = currentLoginUser;
         }
         [HttpPost]
         public ActionResult Login(UserLoginForm model)
@@ -31,19 +38,24 @@ namespace MicroERP.Web.Areas.System.Controllers
                     return RedirectToAction("Login", "Main", new { msg = "验证码错误！请重新输入" });
                 }
                 UserManage userManage = new UserManage();
-                UserLoginForm loginForm = userManage.Login(model);
-                if (loginForm == null)
+                ViewUserAsEmployee user = userManage.Login(model);
+                if (user == null)
                 {
                     return RedirectToAction("Login", "Main", new { msg = "账号或密码不正确，是否重新登陆？" });
 
                 }
                 else
                 {
-                    Session["loginuser"] = loginForm;
+                    Session["loginuser"] = user;
                     return Redirect("/system/main/index/");
                 }
             }
             return View();
+        }
+        public ActionResult ExitLog()//退出登录
+        {
+            Session["loginuser"] = null;
+            return Redirect("/");
         }
         #region 验证码
         public FileResult ValidateCode()

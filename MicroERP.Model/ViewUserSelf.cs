@@ -14,13 +14,13 @@ namespace MicroERP.Model
     
     public partial class ViewUserSelf
     {
-        public int 员工编号 { get; set; }
-        public string 姓名 { get; set; }
-        public string 手机号 { get; set; }
-        public string 联系地址 { get; set; }
-        public string 自我介绍 { get; set; }
-        public string 头像链接 { get; set; }
-        public string 电子邮箱 { get; set; }
-        public string 密码 { get; set; }
+        public int UserID { get; set; }
+        public string UserName { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Address { get; set; }
+        public string Introduce { get; set; }
+        public string PicURL { get; set; }
+        public string Email { get; set; }
+        public string UserPassword { get; set; }
     }
 }

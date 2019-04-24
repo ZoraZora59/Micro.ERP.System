@@ -14,6 +14,7 @@ namespace MicroERP.IDAL
         ViewUserLogin GetUserLogin(int userID);//获取单个用户登录信息
         ViewUserSelf GetUserSelf(int userID);//获取个人资料
         ViewEmployee GetUserEmploy(int userID);//获取职位信息
+        ViewUserAsEmployee GetUserAsEmployee(int userID);//获取用户职位信息
 
         List<InfoUserSelf> GetUserSelfInfos();//获取全部个人资料表
         List<ViewUserSelf> GetUserSelves();//获取个人信息表

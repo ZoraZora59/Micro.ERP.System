@@ -42,6 +42,21 @@ namespace MicroERP.DAL
             throw new NotImplementedException();
         }
 
+        ViewUserAsEmployee IUserData.GetUserAsEmployee(int userID)
+        {
+            using (MicroERPContext db = new MicroERPContext())
+            {
+                return db.UserSelves.Where(c => c.UserID == userID).Select(c => new ViewUserAsEmployee()
+                {
+                    UserID = c.UserID,
+                    UserName = c.UserName,
+                    UserPosition=c.UserPosition,
+                    UserDepartment=c.UserDepartment,
+                    UserStatus=c.UserStatus
+                }).ToList().First();
+            }
+        }
+
         ViewEmployee IUserData.GetUserEmploy(int userID)
         {
             throw new NotImplementedException();
@@ -62,7 +77,12 @@ namespace MicroERP.DAL
 
         ViewUserSelf IUserData.GetUserSelf(int userID)
         {
-            throw new NotImplementedException();
+            using (MicroERPContext db = new MicroERPContext())
+            {
+                return db.UserSelves.Where(c => c.UserID == userID).Select(c => new ViewUserSelf() { UserID = c.UserID,UserName=c.UserName,
+                    PicURL =c.ProfilePictureAddress,Address=c.UserAddress,Email=c.UserEmail,Introduce=c.SelfIntroduction,
+                    PhoneNumber =c.UserPhoneNumber,  UserPassword = c.UserPassword }).ToList().First();
+            }
         }
 
         List<InfoUserSelf> IUserData.GetUserSelfInfos()
