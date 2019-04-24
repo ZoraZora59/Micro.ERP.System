@@ -14,7 +14,7 @@ namespace MicroERP.Model
     
     public partial class ViewUserLogin
     {
-        public int 用户编号 { get; set; }
-        public string 登录密码 { get; set; }
+        public int UserID { get; set; }
+        public string UserPassword { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace MicroERP.Model
 {
     public class InfoGoodsOrder
-    {
+    { 
         [Key]
         [Required]
         [Display(Name = "»õµ¥±àºÅ")]

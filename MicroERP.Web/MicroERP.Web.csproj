@@ -156,8 +156,20 @@
     <Content Include="App_Data\MicroERP_log.ldf">
       <DependentUpon>MicroERP.mdf</DependentUpon>
     </Content>
+    <Content Include="Areas\System\Content\css\bootstrap-grid.css" />
+    <Content Include="Areas\System\Content\css\bootstrap-grid.min.css" />
+    <Content Include="Areas\System\Content\css\bootstrap-reboot.css" />
+    <Content Include="Areas\System\Content\css\bootstrap-reboot.min.css" />
+    <Content Include="Areas\System\Content\css\bootstrap.css" />
+    <Content Include="Areas\System\Content\css\bootstrap.min.css" />
+    <Content Include="Areas\System\Content\css\floating-labels.css" />
     <Content Include="Areas\System\Content\css\system-admin.css" />
     <Content Include="Areas\System\Content\css\system-admin.min.css" />
+    <Content Include="Areas\System\Content\css\translateelement.css" />
+    <Content Include="Areas\System\Content\js\bootstrap.bundle.js" />
+    <Content Include="Areas\System\Content\js\bootstrap.bundle.min.js" />
+    <Content Include="Areas\System\Content\js\bootstrap.js" />
+    <Content Include="Areas\System\Content\js\bootstrap.min.js" />
     <Content Include="Areas\System\Content\js\demo\chart-area-demo.js" />
     <Content Include="Areas\System\Content\js\demo\chart-bar-demo.js" />
     <Content Include="Areas\System\Content\js\demo\chart-pie-demo.js" />
@@ -1723,6 +1735,8 @@
     <Content Include="Areas\System\Content\vendor\jquery\jquery.slim.js" />
     <Content Include="Areas\System\Content\vendor\jquery\jquery.slim.min.js" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Logo.png" />
+    <Content Include="Content\Logo.svg" />
     <Content Include="Content\product.css" />
     <Content Include="Content\trade.jpg" />
     <Content Include="Content\translateelement.css" />
@@ -1906,6 +1920,17 @@
     <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\System\Views\Main\Login.cshtml" />
+    <Content Include="Areas\System\Content\css\bootstrap-grid.css.map" />
+    <Content Include="Areas\System\Content\css\bootstrap-grid.min.css.map" />
+    <Content Include="Areas\System\Content\css\bootstrap-reboot.css.map" />
+    <Content Include="Areas\System\Content\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Areas\System\Content\css\bootstrap.css.map" />
+    <Content Include="Areas\System\Content\css\bootstrap.min.css.map" />
+    <Content Include="Areas\System\Content\js\bootstrap.bundle.js.map" />
+    <Content Include="Areas\System\Content\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Areas\System\Content\js\bootstrap.js.map" />
+    <Content Include="Areas\System\Content\js\bootstrap.min.js.map" />
     <None Include="packages.config" />
     <Content Include="Views\Home\SuccessfulCase.cshtml" />
     <Content Include="Views\Home\Partner.cshtml" />

@@ -28,6 +28,7 @@ namespace MicroERP.Model
         public string ProfilePictureAddress { get; set; }
         [Display(Name = "密码")]
         [Required]
+        [MaxLength(64)]
         public string UserPassword { get; set; }
         [Display(Name = "E-mail")]
         [Required]
@@ -48,12 +49,12 @@ namespace MicroERP.Model
         [Column(TypeName = "Date")]
         public DateTime OfferDate { get; set; }
     
-        public virtual ICollection<InfoEmployeeViolation> EmployeeViolationInfo { get; set; }
-        public virtual ICollection<InfoFundsGoods> FundsGoodsInfo { get; set; }
-        public virtual ICollection<InfoFundsSalary> FundsSalaryInfo { get; set; }
-        public virtual ICollection<InfoGoodsConfirm> GoodsConfirmInfo { get; set; }
-        public virtual ICollection<InfoGoodsOrder> GoodsOrderInfo { get; set; }
-        public virtual ICollection<InfoGoodsRejectedOrder> GoodsRejectedOrderInfo { get; set; }
-        public virtual ICollection<InfoUserUpdate> UserUpdateInfo { get; set; }
+        //public virtual ICollection<InfoEmployeeViolation> EmployeeViolationInfo { get; set; }
+        //public virtual ICollection<InfoFundsGoods> FundsGoodsInfo { get; set; }
+        //public virtual ICollection<InfoFundsSalary> FundsSalaryInfo { get; set; }
+        //public virtual ICollection<InfoGoodsConfirm> GoodsConfirmInfo { get; set; }
+        //public virtual ICollection<InfoGoodsOrder> GoodsOrderInfo { get; set; }
+        //public virtual ICollection<InfoGoodsRejectedOrder> GoodsRejectedOrderInfo { get; set; }
+        //public virtual ICollection<InfoUserUpdate> UserUpdateInfo { get; set; }
     }
 }

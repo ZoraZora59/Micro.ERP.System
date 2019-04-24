@@ -1,0 +1,91 @@
+﻿@model MicroERP.BLL.Models.UserLoginForm
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="translated-ltr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://v4.bootcss.com/favicon.ico">
+
+    <title>微贸-MicroERP系统</title>
+
+    <!-- Bootstrap core CSS -->
+    @*<link href="./BootstrapLogin_files/bootstrap.min.css" rel="stylesheet">*@
+    <link href="~/Areas/System/Content/css/bootstrap.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    @*<link href="./BootstrapLogin_files/floating-labels.css" rel="stylesheet">*@
+    <link href="~/Areas/System/Content/css/floating-labels.css" rel="stylesheet" />
+    <script src="~/Areas/System/Content/vendor/jquery/jquery.js"></script>
+    @*<link type="text/css" rel="stylesheet" charset="UTF-8" href="./BootstrapLogin_files/translateelement.css">*@
+    <link type="text/css" rel="stylesheet" charset="UTF-8" href="~/Areas/System/Content/css/translateelement.css" />
+</head>
+
+<body>
+    @Html.Hidden("msg", Request.QueryString["msg"], new { @id = "msg" })
+    @using (Html.BeginForm("Login", "Main", FormMethod.Post))
+    {
+        <form class="form-signin">
+            <div class="text-center mb-4">
+                @*<img class="mb-4" src="./BootstrapLogin_files/bootstrap-solid.svg" alt="" width="72" height="72">*@
+                <img class="mb-4" src="~/Content/Logo.png" alt="" width="144" height="144" />
+                <h1 class="h3 mb-3 font-weight-normal"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">微贸工作系统</font></font></h1>
+                <p>
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">微贸 MicroERP 工作系统，请使用员工信息登录。</font>
+
+                    </font>
+                <p>
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">适用于最新的Chrome，Safari和Firefox。</font>
+                    </font>
+                </p>
+            </div>
+
+            <div class="form-label-group">
+                @Html.TextBoxFor(c => c.UserID, new { @class = "form-control", id = "inputUserID", placeholder = "User ID", required = "", style = "ime-mode:disabled", autofocus = "" })
+                <label for="inputUserID"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户编号</font></font></label>
+                @Html.ValidationMessageFor(m => m.UserID)
+            </div>
+
+            <div class="form-label-group">
+                @Html.TextBoxFor(c => c.Password, new { @class = "form-control", id = "inputPassword", placeholder = "User Password", required = "", style = "ime-mode:disabled", autofocus = "" })
+                <label for="inputPassword"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">密码</font></font></label>
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+
+            <div class="form-label-group">
+                @Html.TextBoxFor(c => c.Code, new { @class = "form-control", id = "inputCode", placeholder = "Check Code", required = "", style = "ime-mode:disabled", autofocus = "" })
+                <img src="/system/main/ValidateCode/" style="position:relative;left:150px;">
+                @Html.ValidationMessageFor(m => m.Code)
+            </div>
+            <input class="btn btn-lg btn-primary btn-block" type="submit" value="登录" />
+            @*<button class="btn btn-lg btn-primary btn-block" type="submit">
+                <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">登入</font>
+                </font>
+            </button>*@
+            <p class="mt-5 mb-3 text-muted text-center">
+                <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">©2018-2019</font>
+                </font>
+            </p>
+        </form>
+    }
+    <script>
+        $(function () {
+            var val = $("#msg").val();
+            if (val != "") {
+                if (confirm(val)) {
+                }
+            }
+        })
+    </script>
+</body>
+</html>

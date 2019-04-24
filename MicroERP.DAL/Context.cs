@@ -11,14 +11,14 @@ namespace MicroERP.DAL
         { }
         public DbSet<InfoUserSelf> UserSelves { get; set; }
         public DbSet<InfoUserUpdate> UserUpdates { get; set; }
-        public DbSet<InfoGoodsResource> GoodsResources { get; set; }
-        public DbSet<InfoGoodsOrder> GoodsOrders { get; set; }
-        public DbSet<InfoGoodsConfirm> GoodsConfirms { get; set; }
-        public DbSet<InfoGoodsRejectedOrder> GoodsRejectedOrders { get; set; }
-        public DbSet<InfoTotalAssets> TotalAssets { get; set; }
-        public DbSet<InfoEmployeeViolation> EmployeeViolations { get; set; }
-        public DbSet<InfoFundsSalary> FundsSalaries { get; set; }
-        public DbSet<InfoFundsGoods> FundsGoods { get; set; }
+        //public DbSet<InfoGoodsResource> GoodsResources { get; set; }
+        //public DbSet<InfoGoodsOrder> GoodsOrders { get; set; }
+        //public DbSet<InfoGoodsConfirm> GoodsConfirms { get; set; }
+        //public DbSet<InfoGoodsRejectedOrder> GoodsRejectedOrders { get; set; }
+        //public DbSet<InfoTotalAssets> TotalAssets { get; set; }
+        //public DbSet<InfoEmployeeViolation> EmployeeViolations { get; set; }
+        //public DbSet<InfoFundsSalary> FundsSalaries { get; set; }
+        //public DbSet<InfoFundsGoods> FundsGoods { get; set; }
     }
     #endregion
 }

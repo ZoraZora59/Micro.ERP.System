@@ -11,6 +11,7 @@ namespace MicroERP.IDAL
         void UpdateEmployee(InfoUserSelf userSelf);//更新职员资料
         void UpdateDetail(InfoUserSelf userSelf);//更新个人信息
 
+        ViewUserLogin GetUserLogin(int userID);//获取单个用户登录信息
         ViewUserSelf GetUserSelf(int userID);//获取个人资料
         ViewEmployee GetUserEmploy(int userID);//获取职位信息
 

@@ -32,7 +32,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\md5tool.cs" />
+    <Compile Include="App_Code\ValidateCode.cs" />
+    <Compile Include="Models\UserLoginForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserManage.cs" />
   </ItemGroup>
