@@ -62,6 +62,7 @@
 
             <div class="form-label-group">
                 @Html.TextBoxFor(c => c.Code, new { @class = "form-control", id = "inputCode", placeholder = "Check Code", required = "", style = "ime-mode:disabled", autofocus = "" })
+                <label for="inputCode"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">验证码</font></font></label>
                 <img src="/system/main/ValidateCode/" style="position:relative;left:150px;">
                 @Html.ValidationMessageFor(m => m.Code)
             </div>
