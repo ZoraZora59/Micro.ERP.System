@@ -23,12 +23,9 @@ namespace MicroERP.Model
         [Display(Name = "派发时间")]
         public DateTime PayWagesDate { get; set; }
 
-        [Display(Name = "违规记录编号")]
-        public int RecordID { get; set; }
-        [Required]
-        [Display(Name = "员工编号")]
     
-        public virtual InfoEmployeeViolation EmployeeViolationInfo { get; set; }
-        public virtual InfoUserSelf UserSelfInfo { get; set; }
+        public virtual InfoEmployeeViolation Violation { get; set; }
+        [Required]
+        public virtual InfoUserSelf UserInfo { get; set; }
     }
 }

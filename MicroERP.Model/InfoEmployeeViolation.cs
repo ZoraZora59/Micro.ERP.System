@@ -21,11 +21,7 @@ namespace MicroERP.Model
         [Column(TypeName = "Date")]
         public DateTime RecordDate { get; set; }
 
-        [Display(Name = "违规员工编号")]
         [Required]
-        public int UserID { get; set; }
-    
-        public virtual InfoUserSelf UserSelfInfo { get; set; }
-        public virtual ICollection<InfoFundsSalary> FundsSalaryInfo { get; set; }
+        public virtual InfoUserSelf UserInfo { get; set; }
     }
 }

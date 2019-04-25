@@ -22,11 +22,8 @@ namespace MicroERP.Model
         public DateTime ConfirmDate { get; set; }
 
         [Required]
-        [Display(Name = "检查员编号")]
-        public int UserID { get; set; }
-        [Display(Name = "目标单编号")]
-        public int ConfirmOrderID { get; set; }
-    
-        public virtual InfoUserSelf UserSelfInfo { get; set; }
+        public virtual InfoUserSelf User { get; set; }
+        [Required]
+        public virtual InfoGoodsOrder GoodsOrder { get; set; }
     }
 }

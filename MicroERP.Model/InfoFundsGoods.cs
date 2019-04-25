@@ -22,16 +22,10 @@ namespace MicroERP.Model
         [Display(Name = "备注")]
         public string FundsNote { get; set; }
 
-        [Display(Name = "确认人编号")]
-        public int UserID { get; set; }
-        [Display(Name = "确认单编号")]
-        public int ConfirmID { get; set; }
-        [Display(Name = "货单编号")]
-        [Required]
-        public int OrderID { get; set; }
 
-        public virtual InfoUserSelf UserSelfInfo { get; set; }
-        public virtual InfoGoodsConfirm GoodsConfirmInfo { get; set; }
-        public virtual InfoGoodsOrder GoodsOrderInfo { get; set; }
+        public virtual InfoUserSelf CheckUser { get; set; }
+        public virtual InfoGoodsConfirm Confirm { get; set; }
+        [Required]
+        public virtual InfoGoodsOrder GoodsOrder { get; set; }
     }
 }

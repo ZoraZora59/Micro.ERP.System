@@ -17,21 +17,14 @@ namespace MicroERP.Model
         [Required]
         public string RejectNote { get; set; }
 
-        [Display(Name = "发起重审的确认单号")]
-        [Required]
-        public string ConfirmID { get; set; }
-        [Display(Name = "货单编号")]
-        [Required]
-        public string OrderID { get; set; }
-        [Display(Name = "操作员编号")]
-        [Required]
-        public string UserID { get; set; }
         [Display(Name = "重审时间")]
         [Column(TypeName = "Date")]
         public DateTime RejectDate { get; set; }
 
-        public virtual InfoGoodsConfirm GoodsConfirmInfo { get; set; }
-        public virtual InfoGoodsOrder GoodsOrderInfo { get; set; }
-        public virtual InfoUserSelf UserSelfInfo { get; set; }
+        public virtual InfoGoodsConfirm Confirm { get; set; }
+        [Required]
+        public virtual InfoGoodsOrder GoodsOrder { get; set; }
+        [Required]
+        public virtual InfoUserSelf CheckUser { get; set; }
     }
 }

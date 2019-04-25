@@ -25,20 +25,12 @@ namespace MicroERP.Model
         [Display(Name = "备注信息")]
         public string SaleNote { get; set; }
 
-        [Required]
-        [Display(Name = "申请人编号")]
-        public int UserID { get; set; }
-        [Required]
-        [Display(Name = "货物编号")]
-        public int GoodsID { get; set; }
-        [Display(Name = "确认单编号")]
-        public int ConfirmID { get; set; }
 
-        public virtual ICollection<InfoFundsGoods> FundsGoodsInfo { get; set; }
-        public virtual ICollection<InfoGoodsConfirm> GoodsConfirmInfo { get; set; }
-        public virtual InfoGoodsConfirm GoodsConfirmInfo1 { get; set; }
-        public virtual InfoGoodsResource GoodsResourceInfo { get; set; }
-        public virtual InfoUserSelf UserSelfInfo { get; set; }
-        public virtual ICollection<InfoGoodsRejectedOrder> GoodsRejectedOrderInfo { get; set; }
+        public virtual InfoFundsGoods Funds { get; set; }
+        public virtual InfoGoodsConfirm GoodsConfirm { get; set; }
+        public virtual InfoGoodsResource GoodsResource { get; set; }
+        [Required]
+        public virtual InfoUserSelf ApplyUser { get; set; }
+        public virtual InfoGoodsRejectedOrder RejectedOrder { get; set; }
     }
 }

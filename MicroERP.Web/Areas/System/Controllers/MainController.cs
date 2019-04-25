@@ -22,7 +22,7 @@ namespace MicroERP.Web.Areas.System.Controllers
         {
             return View();
         }
-        public void GetSessionInfo()
+        public void GetSessionInfo()//将Session中的登录信息获取到ViewBag的currentLoginInfo
         {
             var currentLoginUser = (ViewUserAsEmployee)Session["loginuser"];
             ViewBag.currentLoginInfo = currentLoginUser;

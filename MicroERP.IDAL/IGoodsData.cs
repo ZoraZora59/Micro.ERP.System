@@ -15,8 +15,8 @@ namespace MicroERP.IDAL
         void UpdateRejact(InfoGoodsRejectedOrder goodsRejectedOrderInfo);//更新驳回单状态
         void UpdateGoodsResource(InfoGoodsResource goodsResourceInfo);//更新货存信息
 
-        ViewGoodsApplyOrder GetGoodsApplyOrder(int OrderID);//获取申请的订单信息
-        ViewGoodsConfirm GetGoodsConfirm(int ConfirmID);//获取确认单详情
+        //ViewGoodsApplyOrder GetGoodsApplyOrder(int OrderID);//获取申请的订单信息
+        //ViewGoodsConfirm GetGoodsConfirm(int ConfirmID);//获取确认单详情
         InfoGoodsOrder GetGoodsOrderInfo(int OrderID);//获取订单详情
         InfoGoodsResource GetGoodsResourceInfo(int GoodsID);//获取单项库存详情
         InfoGoodsRejectedOrder GetGoodsRejectedOrderInfo(int RejectID);//获取驳回单详情
@@ -24,7 +24,7 @@ namespace MicroERP.IDAL
         List<InfoGoodsResource> GetGoodsResourceInfos();//获取货物库存清单
         List<InfoGoodsRejectedOrder> GetGoodsRejectedOrderInfos();//获取驳回清单
         List<InfoGoodsConfirm> GetGoodsConfirmInfos();//获取确认清单
-        List<ViewGoodsApplyOrder> GetGoodsApplyOrders();//获取申请清单
+        //List<ViewGoodsApplyOrder> GetGoodsApplyOrders();//获取申请清单
         List<InfoGoodsOrder> GetGoodsOrderInfos();//获取订单详情清单
     }
 }

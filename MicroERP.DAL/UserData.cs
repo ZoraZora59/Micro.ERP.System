@@ -11,6 +11,16 @@ namespace MicroERP.DAL
 {
     public class UserData : IUserData
     {
+        void IUserData.CreateEmployee(InfoUserSelf userSelf)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IUserData.CreateUpdateRecord(InfoUserUpdate userUpdate)
+        {
+            throw new NotImplementedException();
+        }
+
         //void IUserData.CreateEmployee(UserSelfInfo userSelf)
         //{
         //    using (MicroERPContext db = new MicroERPContext())
@@ -27,20 +37,6 @@ namespace MicroERP.DAL
         //        return db.UserLogin.ToList();
         //    }
         //}
-        void IUserData.CreateEmployee(InfoUserSelf userSelf)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IUserData.CreateUpdateRecord(InfoUserUpdate userUpdate)
-        {
-            throw new NotImplementedException();
-        }
-
-        List<ViewEmployee> IUserData.GetEmployeeViews()
-        {
-            throw new NotImplementedException();
-        }
 
         ViewUserAsEmployee IUserData.GetUserAsEmployee(int userID)
         {
@@ -55,11 +51,6 @@ namespace MicroERP.DAL
                     UserStatus=c.UserStatus
                 }).ToList().First();
             }
-        }
-
-        ViewEmployee IUserData.GetUserEmploy(int userID)
-        {
-            throw new NotImplementedException();
         }
 
         ViewUserLogin IUserData.GetUserLogin(int userID)
@@ -80,7 +71,7 @@ namespace MicroERP.DAL
             using (MicroERPContext db = new MicroERPContext())
             {
                 return db.UserSelves.Where(c => c.UserID == userID).Select(c => new ViewUserSelf() { UserID = c.UserID,UserName=c.UserName,
-                    PicURL =c.ProfilePictureAddress,Address=c.UserAddress,Email=c.UserEmail,Introduce=c.SelfIntroduction,
+                    Address=c.UserAddress,Email=c.UserEmail,
                     PhoneNumber =c.UserPhoneNumber,  UserPassword = c.UserPassword }).ToList().First();
             }
         }

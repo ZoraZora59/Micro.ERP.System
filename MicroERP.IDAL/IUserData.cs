@@ -13,13 +13,13 @@ namespace MicroERP.IDAL
 
         ViewUserLogin GetUserLogin(int userID);//获取单个用户登录信息
         ViewUserSelf GetUserSelf(int userID);//获取个人资料
-        ViewEmployee GetUserEmploy(int userID);//获取职位信息
+        //ViewEmployee GetUserEmploy(int userID);//获取职位信息
         ViewUserAsEmployee GetUserAsEmployee(int userID);//获取用户职位信息
 
         List<InfoUserSelf> GetUserSelfInfos();//获取全部个人资料表
         List<ViewUserSelf> GetUserSelves();//获取个人信息表
         List<ViewUserLogin> GetUserLogins();//获取登录信息表
         List<InfoUserUpdate> GetUserUpdateInfos();//获取职位变动记录表
-        List<ViewEmployee> GetEmployeeViews();//获取员工职位表
+        //List<ViewEmployee> GetEmployeeViews();//获取员工职位表
     }
 }

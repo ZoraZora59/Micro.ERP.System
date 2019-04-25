@@ -44,14 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewEmployeeResource.cs" />
-    <Compile Include="ViewEmployeeSalary.cs" />
-    <Compile Include="ViewEmployee.cs" />
     <Compile Include="InfoEmployeeViolation.cs" />
     <Compile Include="InfoFundsGoods.cs" />
     <Compile Include="InfoFundsSalary.cs" />
-    <Compile Include="ViewGoodsApplyOrder.cs" />
-    <Compile Include="ViewGoodsConfirm.cs" />
     <Compile Include="InfoGoodsConfirm.cs" />
     <Compile Include="InfoGoodsOrder.cs" />
     <Compile Include="InfoGoodsRejectedOrder.cs" />
