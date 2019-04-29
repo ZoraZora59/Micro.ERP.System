@@ -51,13 +51,13 @@
                     <span class="badge badge-danger">9+</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">处理相关数据</a>
+                    @*<a class="dropdown-item" href="#">Another action</a>*@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Something else here</a>
                 </div>
             </li>
-            <li class="nav-item dropdown no-arrow mx-1">
+            @*<li class="nav-item dropdown no-arrow mx-1">
                 <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-envelope fa-fw"></i>
                     <span class="badge badge-danger">7</span>
@@ -68,7 +68,7 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Something else here</a>
                 </div>
-            </li>
+            </li>*@
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user-circle fa-fw"></i>
@@ -95,7 +95,7 @@
                     <span>总览</span>
                 </a>
             </li>
-            @if (currentUser.UserDepartment == "市场部" || currentUser.UserDepartment == "财务部")
+            @if (currentUser.UserDepartment == "市场部" || currentUser.UserDepartment == "财务部" || currentUser.UserDepartment == "综合管理部")
             {
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -103,18 +103,18 @@
                         <span>资金信息管理</span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                        <h6 class="dropdown-header">Login Screens:</h6>
-                        <a class="dropdown-item" href="login.html">Login</a>
-                        <a class="dropdown-item" href="register.html">Register</a>
-                        <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
+                        <h6 class="dropdown-header">资金单申请</h6>
+                        <a class="dropdown-item" href="login.html">货流资金申请</a>
+                        <a class="dropdown-item" href="register.html">驳回单修改</a>
+                        @*<a class="dropdown-item" href="forgot-password.html">Forgot Password</a>*@
                         <div class="dropdown-divider"></div>
-                        <h6 class="dropdown-header">Other Pages:</h6>
-                        <a class="dropdown-item" href="404.html">404 Page</a>
-                        <a class="dropdown-item" href="blank.html">Blank Page</a>
+                        <h6 class="dropdown-header">资金单确认：</h6>
+                        <a class="dropdown-item" href="404.html">待确认表单</a>
+                        <a class="dropdown-item" href="blank.html">驳回表单</a>
                     </div>
                 </li>
             }
-            @if (currentUser.UserDepartment == "人事部" || currentUser.UserDepartment == "财务部")
+            @if (currentUser.UserDepartment == "人事部" || currentUser.UserDepartment == "财务部" || currentUser.UserDepartment == "综合管理部")
             {
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -122,18 +122,18 @@
                         <span>人事信息管理</span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                        <h6 class="dropdown-header">Login Screens:</h6>
+                        <h6 class="dropdown-header">人事调动：</h6>
                         <a class="dropdown-item" href="login.html">Login</a>
                         <a class="dropdown-item" href="register.html">Register</a>
                         <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
                         <div class="dropdown-divider"></div>
-                        <h6 class="dropdown-header">Other Pages:</h6>
-                        <a class="dropdown-item" href="404.html">404 Page</a>
+                        <h6 class="dropdown-header">行政处罚：</h6>
+                        <a class="dropdown-item" href="404.html">员工违规记录</a>
                         <a class="dropdown-item" href="blank.html">Blank Page</a>
                     </div>
                 </li>
             }
-            @if (currentUser.UserDepartment == "市场部" || currentUser.UserDepartment == "财务部")
+            @if (currentUser.UserDepartment == "市场部" || currentUser.UserDepartment == "财务部" || currentUser.UserDepartment == "综合管理部")
             {
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -141,12 +141,12 @@
                         <span>货流信息管理</span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                        <h6 class="dropdown-header">Login Screens:</h6>
-                        <a class="dropdown-item" href="login.html">Login</a>
-                        <a class="dropdown-item" href="register.html">Register</a>
-                        <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
+                        <h6 class="dropdown-header">货流单申请：</h6>
+                        <a class="dropdown-item" href="login.html">出货申请</a>
+                        <a class="dropdown-item" href="register.html">进货申请</a>
+                        <a class="dropdown-item" href="forgot-password.html">驳回单修改</a>
                         <div class="dropdown-divider"></div>
-                        <h6 class="dropdown-header">Other Pages:</h6>
+                        <h6 class="dropdown-header">货流单确认：</h6>
                         <a class="dropdown-item" href="404.html">404 Page</a>
                         <a class="dropdown-item" href="blank.html">Blank Page</a>
                     </div>
@@ -158,7 +158,7 @@
                     <span>个人资料设置</span>
                 </a>
             </li>
-            <li class="nav-item">
+            @*<li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span>
@@ -169,7 +169,7 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span>
                 </a>
-            </li>
+            </li>*@
         </ul>
         @RenderBody()
     </div>
