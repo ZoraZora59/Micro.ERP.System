@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MicroERP.Model;
+﻿using MicroERP.BLL.Models;
 using MicroERP.DAL;
 using MicroERP.IDAL;
-using MicroERP.BLL.Models;
+using MicroERP.Model;
+using System.Collections.Generic;
 
 namespace MicroERP.BLL
 {
@@ -17,14 +13,28 @@ namespace MicroERP.BLL
         {
             this.userData = new UserData();
         }
+
+        public List<ViewUserAsEmployee> GetUserAsEmployees()
+        {
+            return userData.GetUserAsEmployee();
+        }
+
         public bool CreateNewEmployee(InfoUserSelf userSelfInfo)
         {
             bool IsSuccess = false;
-            //IUserData userData = new UserData();
-            //userData.CreateEmployee(userSelfInfo);
+            userSelfInfo.UserStatus = "在职";
+            userData.CreateEmployee(userSelfInfo);
+            IsSuccess = true;
             return IsSuccess;
         }
-
+        public List<string> GetPositionList()
+        {
+            return EmployeeResourceModel.Position;
+        }
+        public List<string> GetDepartmentList()
+        {
+            return EmployeeResourceModel.Department;
+        }
         public ViewUserAsEmployee Login(UserLoginForm model)
         {
             var userLogin = userData.GetUserLogin(model.UserID);
@@ -32,10 +42,5 @@ namespace MicroERP.BLL
                 return userData.GetUserAsEmployee(model.UserID);
             return null;
         }
-        //public List<UserLogin> GetList()
-        //{
-        //    var us = new UserData();
-        //    return us.GetList();
-        //}
     }
 }

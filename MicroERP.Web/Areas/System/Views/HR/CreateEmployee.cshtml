@@ -1,0 +1,120 @@
+﻿@model MicroERP.Model.InfoUserSelf
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<body class="bg-light">
+    <div id="content-wrapper">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+        <div class="container-fluid">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="index">管理中心</a>
+                </li>
+                <li class="breadcrumb-item">人事信息管理</li>
+                <li class="breadcrumb-item active">新员工入职</li>
+            </ol>
+        </div>
+        <div class="container">
+            <div class="py-0 text-center">
+                <img class="d-block mx-auto mb-4" src="~/Content/Logo.png" alt="" width="72" height="72" />
+                <h2>
+                    <font style="vertical-align: inherit;">新员工信息填写</font>
+                </h2>
+                <p class="lead">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">请人力资源部对新员工的各项信息进行填写，确保无误。</font>
+                        <font style="vertical-align: inherit;">部分项目在员工入职后可由员工进行修改。</font>
+                    </font>
+                </p>
+            </div>
+
+            <div class="col-md">
+                <div class="row ">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="col-md-6 mb-3">
+                        @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md mb-3">
+                            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        @Html.LabelFor(model => model.UserPassword, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md mb-3">
+                            @Html.EditorFor(model => model.UserPassword, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.UserPassword, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        @Html.LabelFor(model => model.UserDepartment, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md mb-3">
+                            @Html.DropDownListFor(model=>model.UserDepartment,ViewBag.selListDep as IEnumerable<SelectListItem>, new {@class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-5 mb-3">
+                        @Html.LabelFor(model => model.UserPosition, htmlAttributes: new { @class = "control-label col-md-5" })
+                        <div class="col-md mb-3">
+                            @Html.DropDownListFor(model => model.UserPosition, ViewBag.selListPos as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        @Html.LabelFor(model => model.UserSalary, htmlAttributes: new { @class = "control-label col-md-6" })
+                        <div class="col-md mb-3">
+                            @Html.EditorFor(model => model.UserSalary, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.UserSalary, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        @Html.LabelFor(model => model.UserPhoneNumber, htmlAttributes: new { @class = "control-label col-md-6" })
+                        <div class="col-md mb-3">
+                            @Html.EditorFor(model => model.UserPhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.UserPhoneNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        @Html.LabelFor(model => model.UserEmail, htmlAttributes: new { @class = "control-label col-md-6" })
+                        <div class="col-md mb-3">
+                            @Html.EditorFor(model => model.UserEmail, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.UserEmail, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-5 mb-3">
+                        @Html.LabelFor(model => model.OfferDate, htmlAttributes: new { @class = "control-label col-md-6" })
+                        <div class="col-md mb-3">
+                            @Html.EditorFor(model => model.OfferDate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.OfferDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UserAddress, htmlAttributes: new { @class = "control-label col-md-6" })
+                    <div class="col-md mb-3">
+                        @Html.EditorFor(model => model.UserAddress, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.UserAddress, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <hr class="mb-4">
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md">
+                        <input type="submit" value="新员工注册" class="btn btn-primary btn-lg btn-block" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</body>

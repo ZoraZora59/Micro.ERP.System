@@ -14,18 +14,23 @@ namespace MicroERP.Web.Areas.System.Controllers
     {
         public ActionResult Index()
         {
-            GetSessionInfo();
-            return View();
+            if (GetSessionInfo())
+                return View();
+            else
+                return Redirect("/System/Main/Login");
         }
         [HttpGet]
         public ActionResult Login()
         {
             return View();
         }
-        public void GetSessionInfo()//将Session中的登录信息获取到ViewBag的currentLoginInfo
+        public bool GetSessionInfo()//将Session中的登录信息获取到ViewBag的currentLoginInfo
         {
             var currentLoginUser = (ViewUserAsEmployee)Session["loginuser"];
+            if (currentLoginUser == null)
+                return false;
             ViewBag.currentLoginInfo = currentLoginUser;
+            return true;
         }
         [HttpPost]
         public ActionResult Login(UserLoginForm model)

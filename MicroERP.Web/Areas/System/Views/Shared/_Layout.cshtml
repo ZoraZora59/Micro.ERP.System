@@ -21,7 +21,6 @@
 </head>
 
 <body id="page-top">
-
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
         <a class="navbar-brand mr-1" href="index.html">MicroERP 系统</a>
@@ -90,7 +89,7 @@
         <ul class="sidebar navbar-nav">
             <li class="nav-item active">
                 <!--TODO:上面的active指的是默认高亮，设为dropdown表示默认灰暗，在页面确认做完后可以修改这里-->
-                <a class="nav-link" href="index">
+                <a class="nav-link" href="/System/Main/Index/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>总览</span>
                 </a>
@@ -123,12 +122,12 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="pagesDropdown">
                         <h6 class="dropdown-header">人事调动：</h6>
-                        <a class="dropdown-item" href="login.html">Login</a>
-                        <a class="dropdown-item" href="register.html">Register</a>
+                        <a class="dropdown-item" href="/System/HR/Index/">员工总览</a>
+                        <a class="dropdown-item" href="/System/HR/CreateEmployee/">新员工入职</a>
                         <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
                         <div class="dropdown-divider"></div>
                         <h6 class="dropdown-header">行政处罚：</h6>
-                        <a class="dropdown-item" href="404.html">员工违规记录</a>
+                        <a class="dropdown-item" href="/System/HR/ViolationIndex/">员工违规记录</a>
                         <a class="dropdown-item" href="blank.html">Blank Page</a>
                     </div>
                 </li>
@@ -142,13 +141,15 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="pagesDropdown">
                         <h6 class="dropdown-header">货流单申请：</h6>
-                        <a class="dropdown-item" href="login.html">出货申请</a>
-                        <a class="dropdown-item" href="register.html">进货申请</a>
-                        <a class="dropdown-item" href="forgot-password.html">驳回单修改</a>
+                        <a class="dropdown-item" href="/System/Goods/Create/">进出货申请</a>
+                        <a class="dropdown-item" href="/System/Goods/Create/">驳回单修改</a>
                         <div class="dropdown-divider"></div>
                         <h6 class="dropdown-header">货流单确认：</h6>
-                        <a class="dropdown-item" href="404.html">404 Page</a>
-                        <a class="dropdown-item" href="blank.html">Blank Page</a>
+                        <a class="dropdown-item" href="404.html">进出货确认</a>
+                        <a class="dropdown-item" href="blank.html">驳回单状态更新</a>
+                        <div class="dropdown-divider"></div>
+                        <h6 class="dropdown-header">货流统计：</h6>
+                        <a class="dropdown-item" href="/System/Goods/Index/">货单记录总览</a>
                     </div>
                 </li>
             }
@@ -212,6 +213,9 @@
     <!-- Demo scripts for this page-->
     <script src="~/Areas/System/Content/js/demo/datatables-demo.js"></script>
     <script src="~/Areas/System/Content/js/demo/chart-area-demo.js"></script>
+    <script>
+
+    </script>
 </body>
 
 </html>

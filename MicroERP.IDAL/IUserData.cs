@@ -3,23 +3,78 @@ using System.Collections.Generic;
 
 namespace MicroERP.IDAL
 {
+    /// <summary>
+    /// 员工数据访问类
+    /// </summary>
     public interface IUserData
     {
-        void CreateEmployee(InfoUserSelf userSelf);//新增职员
-        void CreateUpdateRecord(InfoUserUpdate userUpdate);//添加人力资源更新记录
+        /// <summary>
+        /// 创建新员工
+        /// </summary>
+        /// <param name="userSelf">个人信息实体</param>
+        void CreateEmployee(InfoUserSelf userSelf);
+        /// <summary>
+        /// 创建资料更新记录
+        /// </summary>
+        /// <param name="userUpdate">更新记录实体</param>
+        void CreateUpdateRecord(InfoUserUpdate userUpdate);
 
-        void UpdateEmployee(InfoUserSelf userSelf);//更新职员资料
-        void UpdateDetail(InfoUserSelf userSelf);//更新个人信息
+        /// <summary>
+        /// 更新用户资料
+        /// </summary>
+        /// <param name="userSelf">完整的员工资料实体</param>
+        void UpdateDetail(InfoUserSelf userSelf);
 
-        ViewUserLogin GetUserLogin(int userID);//获取单个用户登录信息
-        ViewUserSelf GetUserSelf(int userID);//获取个人资料
-        //ViewEmployee GetUserEmploy(int userID);//获取职位信息
-        ViewUserAsEmployee GetUserAsEmployee(int userID);//获取用户职位信息
+        /// <summary>
+        /// 获取全部员工的员工资料信息
+        /// </summary>
+        /// <param name="userID">员工编号</param>
+        /// <returns></returns>
+        List<ViewUserAsEmployee> GetUserAsEmployee();
 
-        List<InfoUserSelf> GetUserSelfInfos();//获取全部个人资料表
-        List<ViewUserSelf> GetUserSelves();//获取个人信息表
-        List<ViewUserLogin> GetUserLogins();//获取登录信息表
-        List<InfoUserUpdate> GetUserUpdateInfos();//获取职位变动记录表
-        //List<ViewEmployee> GetEmployeeViews();//获取员工职位表
+        /// <summary>
+        /// 获取员工登录信息
+        /// </summary>
+        /// <param name="userID">员工编号</param>
+        /// <returns></returns>
+        ViewUserLogin GetUserLogin(int userID);
+        /// <summary>
+        /// 获取员工个人资料中可以自由修改的部分
+        /// </summary>
+        /// <param name="userID">员工编号</param>
+        /// <returns></returns>
+        ViewUserSelf GetUserSelf(int userID);
+        /// <summary>
+        /// 以员工资料的模型来获取员工信息
+        /// </summary>
+        /// <param name="userID">员工编号</param>
+        /// <returns></returns>
+        ViewUserAsEmployee GetUserAsEmployee(int userID);
+
+        /// <summary>
+        /// 获取所有员工的全部信息
+        /// </summary>
+        /// <returns></returns>
+        List<InfoUserSelf> GetUserSelfInfos();
+        /// <summary>
+        /// 获取所有员工信息中可以自由修改的部分
+        /// </summary>
+        /// <returns></returns>
+        List<ViewUserSelf> GetUserSelves();
+        /// <summary>
+        /// 获取所有员工的登录信息
+        /// </summary>
+        /// <returns></returns>
+        List<ViewUserLogin> GetUserLogins();
+        /// <summary>
+        /// 获取所有员工的资料更新记录
+        /// </summary>
+        /// <returns></returns>
+        List<InfoUserUpdate> GetUserUpdateInfos();
+        /// <summary>
+        /// 获取单个用户的资料更新记录
+        /// </summary>
+        /// <returns></returns>
+        List<InfoUserUpdate> GetThisUserUpdateInfos(int userID);
     }
 }
