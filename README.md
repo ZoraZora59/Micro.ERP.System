@@ -1,1 +1,11 @@
-# Micro.ERP.System
+# 小微型贸易ERP系统 Micro.ERP.System
+
+## 使用时请开源。
+
+## 系统设计
+
+## 环境搭建
+
+## 功能覆盖
+
+## 更新维护
