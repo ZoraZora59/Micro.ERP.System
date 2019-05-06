@@ -95,22 +95,6 @@ namespace MicroERP.DAL
         }
 
         /// <summary>
-        /// 获取所有员工的登录信息
-        /// </summary>
-        /// <returns></returns>
-        List<ViewUserLogin> IUserData.GetUserLogins()
-        {
-            using (MicroERPContext db = new MicroERPContext())
-            {
-                return db.UserSelves.Select(c => new ViewUserLogin()
-                {
-                    UserID = c.UserID,
-                    UserPassword = c.UserPassword
-                }).ToList();
-            };
-        }
-
-        /// <summary>
         /// 获取员工个人资料中可以自由修改的部分
         /// </summary>
         /// <param name="userID">员工编号</param>

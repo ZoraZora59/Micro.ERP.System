@@ -15,18 +15,26 @@ namespace MicroERP.Web.Areas.System.Controllers
     public class GoodsController : Controller
     {
         private MicroERPContext db = new MicroERPContext();
-        public bool GetSessionInfo()//将Session中的登录信息获取到ViewBag的currentLoginInfo
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)//获取用户登录信息
         {
-            var currentLoginUser = (ViewUserAsEmployee)Session["loginuser"];
-            if (currentLoginUser == null)
-                return false;
+            base.OnActionExecuting(filterContext);
+            var currentLoginUser = Session["loginuser"] == null ? null : (ViewUserAsEmployee)Session["loginuser"];
+            if (currentLoginUser == null)//如果没有登录，跳转到登录界面
+            {
+                filterContext.Result = Redirect("/Home/Login/");
+            }
+            else//如果是已离职员工，则跳转到主界面
+            {
+                if (currentLoginUser.UserStatus == "离职")
+                {
+                    filterContext.Result = RedirectToAction("Login", "Home", new { msg = "您已经办理离职，如有特殊情况请与人事部沟通。" });
+                }
+            }
             ViewBag.currentLoginInfo = currentLoginUser;
-            return true;
         }
         // GET: System/Goods
         public async Task<ActionResult> Index()
         {
-            GetSessionInfo();
             var goodsOrders = db.GoodsOrders.Include(i => i.Funds).Include(i => i.GoodsConfirm).Include(i => i.RejectedOrder);
             return View(await goodsOrders.ToListAsync());
         }
@@ -43,7 +51,6 @@ namespace MicroERP.Web.Areas.System.Controllers
             {
                 return HttpNotFound();
             }
-            GetSessionInfo();
             return View(infoGoodsOrder);
         }
 
@@ -53,7 +60,6 @@ namespace MicroERP.Web.Areas.System.Controllers
             ViewBag.OrderID = new SelectList(db.FundsGoods, "FundsForGoodsID", "FundsState");
             ViewBag.OrderID = new SelectList(db.GoodsConfirms, "ConfirmID", "ConfirmType");
             ViewBag.OrderID = new SelectList(db.GoodsRejectedOrders, "RejectID", "RejectState");
-            GetSessionInfo();
             return View();
         }
 
@@ -74,7 +80,6 @@ namespace MicroERP.Web.Areas.System.Controllers
             ViewBag.OrderID = new SelectList(db.FundsGoods, "FundsForGoodsID", "FundsState", infoGoodsOrder.OrderID);
             ViewBag.OrderID = new SelectList(db.GoodsConfirms, "ConfirmID", "ConfirmType", infoGoodsOrder.OrderID);
             ViewBag.OrderID = new SelectList(db.GoodsRejectedOrders, "RejectID", "RejectState", infoGoodsOrder.OrderID);
-            GetSessionInfo();
             return View(infoGoodsOrder);
         }
 
@@ -93,7 +98,6 @@ namespace MicroERP.Web.Areas.System.Controllers
             ViewBag.OrderID = new SelectList(db.FundsGoods, "FundsForGoodsID", "FundsState", infoGoodsOrder.OrderID);
             ViewBag.OrderID = new SelectList(db.GoodsConfirms, "ConfirmID", "ConfirmType", infoGoodsOrder.OrderID);
             ViewBag.OrderID = new SelectList(db.GoodsRejectedOrders, "RejectID", "RejectState", infoGoodsOrder.OrderID);
-            GetSessionInfo();
             return View(infoGoodsOrder);
         }
 
@@ -113,7 +117,6 @@ namespace MicroERP.Web.Areas.System.Controllers
             ViewBag.OrderID = new SelectList(db.FundsGoods, "FundsForGoodsID", "FundsState", infoGoodsOrder.OrderID);
             ViewBag.OrderID = new SelectList(db.GoodsConfirms, "ConfirmID", "ConfirmType", infoGoodsOrder.OrderID);
             ViewBag.OrderID = new SelectList(db.GoodsRejectedOrders, "RejectID", "RejectState", infoGoodsOrder.OrderID);
-            GetSessionInfo();
             return View(infoGoodsOrder);
         }
         

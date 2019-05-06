@@ -39,7 +39,7 @@ namespace MicroERP.Model
         [Display(Name = "在职状态")]
         [Required]
         public string UserStatus { get; set; }
-        [Display(Name = "入职时间 (yyyy-mm-dd)")]
+        [Display(Name = "入职时间")]
         [Column(TypeName = "Date")]
         public DateTime OfferDate { get; set; }
     

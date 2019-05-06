@@ -1,59 +1,99 @@
 ﻿@model IEnumerable<MicroERP.Model.ViewUserAsEmployee>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "员工总览";
 }
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.UserID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserDepartment)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserPosition)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserStatus)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(model => item.UserID)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.UserDepartment)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.UserPosition)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.UserStatus)
-            </td>
-            <td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.UserID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.UserID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.UserID })
-            </td>
-        </tr>
-    }
-
-</table>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<body class="bg-light">
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="index">管理中心</a>
+                </li>
+                <li class="breadcrumb-item">人事信息管理</li>
+                <li class="breadcrumb-item active">员工信息总览</li>
+            </ol>
+        </div>
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+                员工人力资源信息总览
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UserID)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UserName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UserDepartment)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UserPosition)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UserStatus)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UserID)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UserName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UserDepartment)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UserPosition)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UserStatus)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(model => item.UserID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(model => item.UserName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(model => item.UserDepartment)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(model => item.UserPosition)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(model => item.UserStatus)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("人事状态更新", "Edit", new { id = item.UserID }) |
+                                        @Html.ActionLink("详细信息", "Details", new { id = item.UserID })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer small text-muted">Code by JiYuHan</div>
+        </div>
+    </div>
+</body>

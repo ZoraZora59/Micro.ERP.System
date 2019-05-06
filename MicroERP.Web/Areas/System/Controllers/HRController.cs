@@ -10,19 +10,31 @@ namespace MicroERP.Web.Areas.System.Controllers
 {
     public class HRController : Controller
     {
-        public bool GetSessionInfo()//将Session中的登录信息获取到ViewBag的currentLoginInfo
+        private UserManage userManage;
+        public HRController(UserManage manage)
         {
-            var currentLoginUser = (ViewUserAsEmployee)Session["loginuser"];
-            if (currentLoginUser == null)
-                return false;
-            ViewBag.currentLoginInfo = currentLoginUser;
-            return true;
+            userManage = manage;
         }
-
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)//获取用户登录信息
+        {
+            base.OnActionExecuting(filterContext);
+            var currentLoginUser = Session["loginuser"] == null ? null : (ViewUserAsEmployee)Session["loginuser"];
+            if (currentLoginUser == null)//如果没有登录，跳转到登录界面
+            {
+                filterContext.Result = Redirect("/Home/Login/");
+            }
+            else//如果是已离职员工，则跳转到主界面
+            {
+                if (currentLoginUser.UserStatus == "离职")
+                {
+                    filterContext.Result = RedirectToAction("Login", "Home", new { msg = "您已经办理离职，如有特殊情况请与人事部沟通。" });
+                }
+            }
+            ViewBag.currentLoginInfo = currentLoginUser;
+        }
         [HttpGet]
         public ActionResult CreateEmployee()
         {
-            GetSessionInfo();
             ViewBag.selListDep = DepartmentDropDownList().AsEnumerable();
             ViewBag.selListPos = PositionDropDownList().AsEnumerable();
             return View();
@@ -30,7 +42,6 @@ namespace MicroERP.Web.Areas.System.Controllers
         [HttpPost]
         public ActionResult CreateEmployee(InfoUserSelf userSelf)
         {
-            UserManage userManage = new UserManage();
             userManage.CreateNewEmployee(userSelf);
             return RedirectToAction("Index", "Main", new { msg = "新员工注册完毕" });
         }
@@ -45,8 +56,6 @@ namespace MicroERP.Web.Areas.System.Controllers
         }
         public ActionResult Index()
         {
-            GetSessionInfo();
-            UserManage userManage = new UserManage();
             return View(userManage.GetUserAsEmployees());
         }
         public ActionResult ViolationIndex()

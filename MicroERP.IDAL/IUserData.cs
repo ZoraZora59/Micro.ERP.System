@@ -62,11 +62,6 @@ namespace MicroERP.IDAL
         /// <returns></returns>
         List<ViewUserSelf> GetUserSelves();
         /// <summary>
-        /// 获取所有员工的登录信息
-        /// </summary>
-        /// <returns></returns>
-        List<ViewUserLogin> GetUserLogins();
-        /// <summary>
         /// 获取所有员工的资料更新记录
         /// </summary>
         /// <returns></returns>

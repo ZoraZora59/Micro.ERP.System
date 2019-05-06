@@ -12,18 +12,28 @@ namespace MicroERP.Web.Areas.System.Controllers
 {
     public class MainController : Controller  
     {
-        public ActionResult Index()
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)//获取用户登录信息
         {
-            if (GetSessionInfo())
-                return View();
-            else
-                return Redirect("/System/Main/Login");
+            base.OnActionExecuting(filterContext);
+            var currentLoginUser = Session["loginuser"] == null ? null : (ViewUserAsEmployee)Session["loginuser"];
+            if (currentLoginUser == null)//如果没有登录，跳转到登录界面
+            {
+                filterContext.Result = Redirect("/Home/Login/");
+            }
+            else//如果是已离职员工，则跳转到主界面
+            {
+                if (currentLoginUser.UserStatus == "离职")
+                {
+                    filterContext.Result = RedirectToAction("Login", "Home", new { msg = "您已经办理离职，如有特殊情况请与人事部沟通。" });
+                }
+            }
+            ViewBag.currentLoginInfo = currentLoginUser;
         }
-        [HttpGet]
-        public ActionResult Login()
+        public ActionResult Index()
         {
             return View();
         }
+        
         public bool GetSessionInfo()//将Session中的登录信息获取到ViewBag的currentLoginInfo
         {
             var currentLoginUser = (ViewUserAsEmployee)Session["loginuser"];
@@ -32,46 +42,11 @@ namespace MicroERP.Web.Areas.System.Controllers
             ViewBag.currentLoginInfo = currentLoginUser;
             return true;
         }
-        [HttpPost]
-        public ActionResult Login(UserLoginForm model)
-        {
-            if (ModelState.IsValid)
-            {
-                string sessionValidCode = Session["validatecode"] == null ? string.Empty : Session["validatecode"].ToString();
-                if (!model.Code.Equals(sessionValidCode))
-                {
-                    return RedirectToAction("Login", "Main", new { msg = "验证码错误！请重新输入" });
-                }
-                UserManage userManage = new UserManage();
-                ViewUserAsEmployee user = userManage.Login(model);
-                if (user == null)
-                {
-                    return RedirectToAction("Login", "Main", new { msg = "账号或密码不正确，是否重新登陆？" });
-
-                }
-                else
-                {
-                    Session["loginuser"] = user;
-                    return Redirect("/system/main/index/");
-                }
-            }
-            return View();
-        }
+        
         public ActionResult ExitLog()//退出登录
         {
             Session["loginuser"] = null;
             return Redirect("/");
         }
-        #region 验证码
-        public FileResult ValidateCode()
-        {
-            ValidateCode vc = new ValidateCode();
-            string code = vc.CreateValidateCode(4);
-            Session["validatecode"] = code;//把数字保存在session中
-            byte[] bytes = vc.CreateValidateGraphic(code);//根据数字转成二进制图片
-            return File(bytes, @"image/jpeg");//返回一个图片jpg
-        }
-        #endregion
-        
     }
 }
