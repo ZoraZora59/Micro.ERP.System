@@ -161,10 +161,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\MicroERP.mdf" />
-    <Content Include="App_Data\MicroERP_log.ldf">
-      <DependentUpon>MicroERP.mdf</DependentUpon>
-    </Content>
     <Content Include="Areas\System\Content\css\bootstrap-grid.css" />
     <Content Include="Areas\System\Content\css\bootstrap-grid.min.css" />
     <Content Include="Areas\System\Content\css\bootstrap-reboot.css" />
@@ -1924,6 +1920,7 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Areas\System\Models\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\" />

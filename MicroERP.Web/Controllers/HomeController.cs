@@ -31,6 +31,7 @@ namespace MicroERP.Web.Controllers
                 {
                     return RedirectToAction("Login", "Home", new { msg = "验证码错误！请重新输入" });
                 }
+                model.Password = md5tool.GetMD5(model.Password);
                 UserManage userManage = new UserManage();
                 ViewUserAsEmployee user = userManage.Login(model);
                 if (user == null)

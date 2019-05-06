@@ -23,10 +23,20 @@ namespace MicroERP.Web
             ViewEngines.Engines.Clear();
             ViewEngines.Engines.Add(new RazorViewEngine());
             ////自动建立数据库
-            //using (var Context = new MicroERPContext())
-            //{
-            //    Context.Database.CreateIfNotExists();
-            //}
+            using (var Context = new MicroERPContext())
+            {
+                try
+                {
+                    Context.Database.CreateIfNotExists();
+                    Context.UserSelves.Add(new Model.InfoUserSelf { UserName = "左拉", UserPassword = "922729261802228716010917272521672032050" ,
+                        UserStatus="在职",UserSalary=3000,UserPhoneNumber="12345678901",UserDepartment="综合管理部",UserPosition="总监",
+                        UserEmail ="123123123@pp.com",UserAddress="湖南省株洲市天元区泰山路湖南工业大学",OfferDate=DateTime.Now});
+                    Context.SaveChanges();
+                }
+                catch (Exception)
+                {
+                }
+            }
         }
 	}
 }
