@@ -3,6 +3,8 @@ using MicroERP.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -43,12 +45,32 @@ namespace MicroERP.Web.Areas.System.Controllers
         public ActionResult CreateEmployee(InfoUserSelf userSelf)
         {
             userManage.CreateNewEmployee(userSelf);
-            return RedirectToAction("Index", "Main", new { msg = "新员工注册完毕" });
+            return RedirectToAction("Index", "Main", new { RegistMsg = "新员工注册完毕" });
         }
 
-        public ActionResult UpdateEmployee()
+        public ActionResult UpdateEmployee(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return Redirect("/System/HR/Index");
+            }
+            else
+            {
+                var targetUser = userManage.GetThisUserAsEmployee((int)id);
+                return View(targetUser);
+            }
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UpdateEmployee(ViewUserAsEmployee userAsEmployee, string Note)
+        {
+            if (ModelState.IsValid)
+            {
+                var updateBy = (ViewUserAsEmployee)Session["loginuser"];
+                userManage.UpdateUserAsEmployee(userAsEmployee, updateBy.UserID,Note);
+                return RedirectToAction("Index", "HR", new { UpdateMsg = userAsEmployee.UserName+" 的人力资源信息更新完毕" });
+            }
+            return View(userAsEmployee);
         }
         public ActionResult UpdateViolation()
         {

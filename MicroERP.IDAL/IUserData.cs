@@ -57,6 +57,11 @@ namespace MicroERP.IDAL
         /// <returns></returns>
         List<InfoUserSelf> GetUserSelfInfos();
         /// <summary>
+        /// 获取单个员工的全部信息
+        /// </summary>
+        /// <returns></returns>
+        InfoUserSelf GetUserSelfInfos(int userID);
+        /// <summary>
         /// 获取所有员工信息中可以自由修改的部分
         /// </summary>
         /// <returns></returns>

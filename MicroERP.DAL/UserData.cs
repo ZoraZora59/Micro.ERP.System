@@ -41,6 +41,19 @@ namespace MicroERP.DAL
         }
 
         /// <summary>
+        /// 获取单个用户的资料更新记录
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
+        List<InfoUserUpdate> IUserData.GetThisUserUpdateInfos(int userID)
+        {
+            using (MicroERPContext db = new MicroERPContext())
+            {
+                return db.UserUpdates.Where(c => c.UserSelf == db.UserSelves.Find(userID)).ToList();
+            }
+        }
+
+        /// <summary>
         /// 以员工资料的模型来获取员工信息
         /// </summary>
         /// <param name="userID">员工编号</param>
@@ -122,6 +135,19 @@ namespace MicroERP.DAL
         }
 
         /// <summary>
+        /// 获取单个用户的全部信息
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
+        InfoUserSelf IUserData.GetUserSelfInfos(int userID)
+        {
+            using (MicroERPContext db = new MicroERPContext())
+            {
+                return db.UserSelves.Find(userID);
+            };
+        }
+
+        /// <summary>
         /// 获取所有员工信息中可以自由修改的部分
         /// </summary>
         /// <returns></returns>
@@ -153,18 +179,6 @@ namespace MicroERP.DAL
         }
 
         /// <summary>
-        /// 获取单个用户的资料更新记录
-        /// </summary>
-        /// <returns></returns>
-        List<InfoUserUpdate> IUserData.GetThisUserUpdateInfos(int userID)
-        {
-            using (MicroERPContext db = new MicroERPContext())
-            {
-                return db.UserUpdates.Where(c => c.UserSelf == db.UserSelves.Find(userID)).ToList();
-            };
-        }
-
-        /// <summary>
         /// 更新用户资料
         /// </summary>
         /// <param name="userSelf">完整的员工资料实体</param>
@@ -184,6 +198,8 @@ namespace MicroERP.DAL
                 db.SaveChanges();
             }
         }
+
+        
     }
 
 }

@@ -25,7 +25,9 @@ namespace MicroERP.Model
         [Required]
         [Display(Name = "备注信息")]
         public string UpdateInformation { get; set; }
-    
+        [Required]
+        [Display(Name ="操作员标记")]
+        public int UpdateBy { get; set; }
         [Required]
         public virtual InfoUserSelf UserSelf { get; set; }
     }

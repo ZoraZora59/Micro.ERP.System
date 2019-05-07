@@ -31,6 +31,8 @@ namespace MicroERP.Web.Areas.System.Controllers
         }
         public ActionResult Index()
         {
+            ViewBag.RegistMsg = Request.QueryString["RegistMsg"];
+            ViewBag.UpdateMsg = Request.QueryString["UpdateMsg"];
             return View();
         }
         

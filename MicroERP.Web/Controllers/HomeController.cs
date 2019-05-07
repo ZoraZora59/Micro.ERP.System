@@ -12,13 +12,15 @@ namespace MicroERP.Web.Controllers
 {
 	public class HomeController : Controller
 	{
+        [HttpGet]
 		public ActionResult Index()
-		{
-			return View();
+        {
+            return View();
 		}
         [HttpGet]
         public ActionResult Login()
         {
+            ViewBag.ErrorMsg= Request.QueryString["msg"];
             return View();
         }
         [HttpPost]
@@ -39,6 +41,8 @@ namespace MicroERP.Web.Controllers
                     return RedirectToAction("Login", "Home", new { msg = "账号或密码不正确，是否重新登陆？" });
 
                 }
+                else if(user.UserStatus!="在职")
+                    return RedirectToAction("Login", "Home", new { msg = "您已经办理离职，如有特殊情况请与人事部沟通。" }); 
                 else
                 {
                     Session["loginuser"] = user;

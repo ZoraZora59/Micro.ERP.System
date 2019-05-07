@@ -17,6 +17,7 @@
     <title>微贸-MicroERP系统</title>
 
     <!-- Bootstrap core CSS -->
+    <script src="~/Content/jquery-3.3.1.min.js"></script>
     @*<link href="./BootstrapLogin_files/bootstrap.min.css" rel="stylesheet">*@
     <link href="~/Areas/System/Content/css/bootstrap.css" rel="stylesheet" />
     <!-- Custom styles for this template -->
@@ -25,15 +26,23 @@
     <script src="~/Areas/System/Content/vendor/jquery/jquery.js"></script>
     @*<link type="text/css" rel="stylesheet" charset="UTF-8" href="./BootstrapLogin_files/translateelement.css">*@
     <link type="text/css" rel="stylesheet" charset="UTF-8" href="~/Areas/System/Content/css/translateelement.css" />
+    <script src="~/Areas/System/Content/vendor/bootstrap/js/bootstrap.bundle.js"></script>
 </head>
 
 <body>
-    @Html.Hidden("msg", Request.QueryString["msg"], new { @id = "msg" })
     @using (Html.BeginForm("Login", "Home", FormMethod.Post))
     {
         <form class="form-signin">
             <div class="text-center mb-4">
-                @*<img class="mb-4" src="./BootstrapLogin_files/bootstrap-solid.svg" alt="" width="72" height="72">*@
+                @if(ViewBag.ErrorMsg!=null)
+                {
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>登录失败</strong> @ViewBag.ErrorMsg
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                }
                 <img class="mb-4" src="~/Content/Logo.png" alt="" width="144" height="144" />
                 <h1 class="h3 mb-3 font-weight-normal"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">微贸工作系统</font></font></h1>
                 <p>
@@ -79,14 +88,5 @@
             </p>
         </form>
     }
-    <script>
-        $(function () {
-            var val = $("#msg").val();
-            if (val != "") {
-                if (confirm(val)) {
-                }
-            }
-        })
-    </script>
 </body>
 </html>

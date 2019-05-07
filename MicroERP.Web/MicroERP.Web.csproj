@@ -1740,6 +1740,7 @@
     <Content Include="Areas\System\Content\vendor\jquery\jquery.slim.js" />
     <Content Include="Areas\System\Content\vendor\jquery\jquery.slim.min.js" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jquery-3.3.1.min.js" />
     <Content Include="Content\Logo.png" />
     <Content Include="Content\Logo.svg" />
     <Content Include="Content\product.css" />
@@ -1943,7 +1944,7 @@
     <Content Include="Areas\System\Views\Goods\Edit.cshtml" />
     <Content Include="Areas\System\Views\Goods\Index.cshtml" />
     <Content Include="Areas\System\Views\HR\Index.cshtml" />
-    <Content Include="Areas\System\Views\HR\EmployeeUpdate.cshtml" />
+    <Content Include="Areas\System\Views\HR\UpdateEmployee.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Home\SuccessfulCase.cshtml" />
     <Content Include="Views\Home\Partner.cshtml" />
