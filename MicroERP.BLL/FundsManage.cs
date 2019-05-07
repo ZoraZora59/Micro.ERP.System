@@ -12,10 +12,10 @@ namespace MicroERP.BLL
     /// </summary>
     public class FundsManage
     {
-        private IFundsData fundsData;
-        public FundsManage(FundsData data)
+        private readonly IFundsData fundsData;
+        public FundsManage()
         {
-            this.fundsData = data;
+            this.fundsData = new FundsData();
         }
     }
 }

@@ -12,10 +12,10 @@ namespace MicroERP.BLL
     /// </summary>
     public class GoodsManage
     {
-        private IGoodsData goodsData;
-        public GoodsManage(GoodsData data)
+        private readonly IGoodsData goodsData;
+        public GoodsManage()
         {
-            this.goodsData = data;
+            goodsData = new GoodsData();
         }
     }
 }

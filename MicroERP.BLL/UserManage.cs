@@ -10,7 +10,7 @@ namespace MicroERP.BLL
 {
     public class UserManage
     {
-        private IUserData userData;
+        private readonly IUserData userData;
         public UserManage()
         {
             this.userData = new UserData();
