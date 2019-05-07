@@ -1,11 +1,6 @@
 ﻿using MicroERP.BLL;
 using MicroERP.Model;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MicroERP.Web.Areas.System.Controllers
@@ -67,8 +62,8 @@ namespace MicroERP.Web.Areas.System.Controllers
             if (ModelState.IsValid)
             {
                 var updateBy = (ViewUserAsEmployee)Session["loginuser"];
-                userManage.UpdateUserAsEmployee(userAsEmployee, updateBy.UserID,Note);
-                return RedirectToAction("Index", "HR", new { UpdateMsg = userAsEmployee.UserName+" 的人力资源信息更新完毕" });
+                userManage.UpdateUserAsEmployee(userAsEmployee, updateBy.UserID, Note);
+                return RedirectToAction("Index", "HR", new { UpdateMsg = userAsEmployee.UserName + " 的人力资源信息更新完毕" });
             }
             return View(userAsEmployee);
         }

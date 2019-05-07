@@ -12,7 +12,7 @@ namespace MicroERP.IDAL
         /// 增加员工违规记录
         /// </summary>
         /// <param name="employeeViolationInfo"></param>
-        void CreateVielationRecord(InfoEmployeeViolation employeeViolationInfo);
+        void CreateViolationRecord(InfoEmployeeViolation employeeViolationInfo);
 
         /// <summary>
         /// 增加工资单记录

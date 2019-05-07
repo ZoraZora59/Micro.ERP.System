@@ -10,7 +10,7 @@ namespace MicroERP.DAL
     /// </summary>
     public class GoodsData : IGoodsData
     {
-        private MicroERPContext db;
+        private readonly MicroERPContext db;
         public GoodsData()
         {
             db = new MicroERPContext();

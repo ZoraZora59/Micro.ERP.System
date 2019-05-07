@@ -1,5 +1,6 @@
 ﻿using MicroERP.IDAL;
 using MicroERP.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,7 +11,7 @@ namespace MicroERP.DAL
     /// </summary>
     public class FundsData : IFundsData
     {
-        private MicroERPContext db;
+        private readonly MicroERPContext db;
         public FundsData()
         {
             db = new MicroERPContext();
@@ -21,77 +22,97 @@ namespace MicroERP.DAL
         }
         void IFundsData.CreateAssetsRecord(InfoTotalAssets totalAssetsInfo)
         {
-            throw new System.NotImplementedException();
+            db.TotalAssets.Add(totalAssetsInfo);
+            db.SaveChanges();
         }
 
         void IFundsData.CreateGoodsFundsRecord(InfoFundsGoods fundsGoodsInfo)
         {
-            throw new System.NotImplementedException();
+            db.FundsGoods.Add(fundsGoodsInfo);
+            db.SaveChanges();
         }
 
         void IFundsData.CreateSalaryRecord(InfoFundsSalary fundsSalaryInfo)
         {
-            throw new System.NotImplementedException();
+            db.FundsSalaries.Add(fundsSalaryInfo);
+            db.SaveChanges();
         }
 
-        void IFundsData.CreateVielationRecord(InfoEmployeeViolation employeeViolationInfo)
+        void IFundsData.CreateViolationRecord(InfoEmployeeViolation employeeViolationInfo)
         {
-            throw new System.NotImplementedException();
+            db.EmployeeViolations.Add(employeeViolationInfo);
+            db.SaveChanges();
         }
 
         List<InfoEmployeeViolation> IFundsData.GetAllEmployeeViolation()
         {
-            throw new System.NotImplementedException();
+            return db.EmployeeViolations.ToList();
         }
 
         List<InfoFundsGoods> IFundsData.GetAllFundsGoods()
         {
-            throw new System.NotImplementedException();
+            return db.FundsGoods.ToList();
         }
 
         List<InfoFundsSalary> IFundsData.GetAllFundsSalary()
         {
-            throw new System.NotImplementedException();
+            return db.FundsSalaries.ToList();
         }
 
         List<InfoEmployeeViolation> IFundsData.GetEmployeeViolationInfosByDate(int year, int month)
         {
-            throw new System.NotImplementedException();
+            //TODO:很可能会报错，需要检查
+            return db.EmployeeViolations.Where(c => c.RecordDate.Year == year&&c.RecordDate.Month==month).ToList(); 
         }
 
         List<InfoEmployeeViolation> IFundsData.GetEmployeeViolationInfosByUserID(int userID)
         {
-            throw new System.NotImplementedException();
+            return db.EmployeeViolations.Where(c => c.UserID == userID).ToList();
         }
 
         InfoFundsGoods IFundsData.GetFundsGoodsByRecordID(int fundsGoodsInfoID)
         {
-            throw new System.NotImplementedException();
+            return db.FundsGoods.Find(fundsGoodsInfoID);
         }
 
         List<InfoTotalAssets> IFundsData.GetTotalAssetsInfos()
         {
-            throw new System.NotImplementedException();
+            return db.TotalAssets.ToList();
         }
 
         InfoTotalAssets IFundsData.GetTotalAssetsNow()
         {
-            throw new System.NotImplementedException();
+            //TODO:需要确定是First还是Last
+            return db.TotalAssets.First();
+            //return db.TotalAssets.Last();
         }
 
         InfoEmployeeViolation IFundsData.GetViolationByRecordID(int recordID)
         {
-            throw new System.NotImplementedException();
+            return db.EmployeeViolations.Find(recordID);
         }
 
         void IFundsData.UpdateGoodsFundsRecord(InfoFundsGoods fundsGoodsInfo)
         {
-            throw new System.NotImplementedException();
+            var before = db.FundsGoods.Find(fundsGoodsInfo.FundsForGoodsID);
+            before.FundsNote = fundsGoodsInfo.FundsNote;
+            before.FundsState = fundsGoodsInfo.FundsState;
+            before.FundsUpdate = fundsGoodsInfo.FundsUpdate;
+            before.GoodsOrderID = fundsGoodsInfo.GoodsOrderID;
+            before.ConfirmDate = fundsGoodsInfo.ConfirmDate;
+            before.CheckUserID = fundsGoodsInfo.CheckUserID;
+            before.ConfirmID = fundsGoodsInfo.ConfirmID;
+            db.SaveChanges();
         }
 
         void IFundsData.UpdateVielationRecord(InfoEmployeeViolation employeeViolationInfo)
         {
-            throw new System.NotImplementedException();
+            var before = db.EmployeeViolations.Find(employeeViolationInfo.RecordID);
+            before.RecordDate = employeeViolationInfo.RecordDate;
+            before.ViolateFor = employeeViolationInfo.ViolateFor;
+            before.FundsPunish = employeeViolationInfo.FundsPunish;
+            before.UserID = employeeViolationInfo.UserID;
+            db.SaveChanges();
         }
     }
 }
