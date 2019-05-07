@@ -5,26 +5,100 @@ namespace MicroERP.IDAL
 {
     public interface IGoodsData
     {
-        void CreateOrder(InfoGoodsOrder goodsOrderInfo);//创建新订单
-        void CreateConfirm(InfoGoodsConfirm goodsConfirmInfo);//创建确认单
-        void CreateReject(InfoGoodsRejectedOrder goodsRejectedOrderInfo);//创建驳回单
-        void CreateGoodsResource(InfoGoodsResource goodsResourceInfo);//创建货存信息
+        /// <summary>
+        /// 创建新订单
+        /// </summary>
+        /// <param name="goodsOrderInfo"></param>
+        void CreateOrder(InfoGoodsOrder goodsOrderInfo);
 
-        void UpdateOrder(InfoGoodsOrder goodsOrderInfo);//修改订单信息
-        void UpdateConfirm(InfoGoodsConfirm goodsConfirmInfo);//更新确认单状态
-        void UpdateRejact(InfoGoodsRejectedOrder goodsRejectedOrderInfo);//更新驳回单状态
-        void UpdateGoodsResource(InfoGoodsResource goodsResourceInfo);//更新货存信息
+        /// <summary>
+        /// 创建确认单
+        /// </summary>
+        /// <param name="goodsConfirmInfo"></param>
+        void CreateConfirm(InfoGoodsConfirm goodsConfirmInfo);
 
-        //ViewGoodsApplyOrder GetGoodsApplyOrder(int OrderID);//获取申请的订单信息
-        //ViewGoodsConfirm GetGoodsConfirm(int ConfirmID);//获取确认单详情
-        InfoGoodsOrder GetGoodsOrderInfo(int OrderID);//获取订单详情
-        InfoGoodsResource GetGoodsResourceInfo(int GoodsID);//获取单项库存详情
-        InfoGoodsRejectedOrder GetGoodsRejectedOrderInfo(int RejectID);//获取驳回单详情
+        /// <summary>
+        /// 创建驳回单
+        /// </summary>
+        /// <param name="goodsRejectedOrderInfo"></param>
+        void CreateReject(InfoGoodsRejectedOrder goodsRejectedOrderInfo);
 
-        List<InfoGoodsResource> GetGoodsResourceInfos();//获取货物库存清单
-        List<InfoGoodsRejectedOrder> GetGoodsRejectedOrderInfos();//获取驳回清单
-        List<InfoGoodsConfirm> GetGoodsConfirmInfos();//获取确认清单
-        //List<ViewGoodsApplyOrder> GetGoodsApplyOrders();//获取申请清单
-        List<InfoGoodsOrder> GetGoodsOrderInfos();//获取订单详情清单
+        /// <summary>
+        /// 创建货存信息
+        /// </summary>
+        /// <param name="goodsResourceInfo"></param>
+        void CreateGoodsResource(InfoGoodsResource goodsResourceInfo);
+
+
+        /// <summary>
+        /// 修改订单信息
+        /// </summary>
+        /// <param name="goodsOrderInfo"></param>
+        void UpdateOrder(InfoGoodsOrder goodsOrderInfo);
+
+        /// <summary>
+        /// 更新确认单状态
+        /// </summary>
+        /// <param name="goodsConfirmInfo"></param>
+        void UpdateConfirm(InfoGoodsConfirm goodsConfirmInfo);
+
+        /// <summary>
+        /// 更新驳回单状态
+        /// </summary>
+        /// <param name="goodsRejectedOrderInfo"></param>
+        void UpdateRejact(InfoGoodsRejectedOrder goodsRejectedOrderInfo);
+
+        /// <summary>
+        /// 更新货存信息
+        /// </summary>
+        /// <param name="goodsResourceInfo"></param>
+        void UpdateGoodsResource(InfoGoodsResource goodsResourceInfo);
+
+
+        /// <summary>
+        /// 获取订单详情
+        /// </summary>
+        /// <param name="OrderID"></param>
+        /// <returns></returns>
+        InfoGoodsOrder GetGoodsOrder(int OrderID);
+
+        /// <summary>
+        /// 获取单项库存详情
+        /// </summary>
+        /// <param name="GoodsID"></param>
+        /// <returns></returns>
+        InfoGoodsResource GetGoodsResource(int GoodsID);
+
+        /// <summary>
+        /// 获取驳回单详情
+        /// </summary>
+        /// <param name="RejectID"></param>
+        /// <returns></returns>
+        InfoGoodsRejectedOrder GetGoodsRejected(int RejectID);
+
+
+        /// <summary>
+        /// 获取货物库存清单
+        /// </summary>
+        /// <returns></returns>
+        List<InfoGoodsResource> GetAllGoodsResource();
+
+        /// <summary>
+        /// 获取全部驳回单的列表
+        /// </summary>
+        /// <returns></returns>
+        List<InfoGoodsRejectedOrder> GetAllGoodsRejectedOrder();
+
+        /// <summary>
+        /// 获取全部确认单列表
+        /// </summary>
+        /// <returns></returns>
+        List<InfoGoodsConfirm> GetAllGoodsConfirm();
+
+        /// <summary>
+        /// 获取全部订单详情
+        /// </summary>
+        /// <returns></returns>
+        List<InfoGoodsOrder> GetAllGoodsOrder();
     }
 }

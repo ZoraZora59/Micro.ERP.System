@@ -13,6 +13,7 @@ namespace MicroERP.IDAL
         /// </summary>
         /// <param name="userSelf">个人信息实体</param>
         void CreateEmployee(InfoUserSelf userSelf);
+
         /// <summary>
         /// 创建资料更新记录
         /// </summary>
@@ -38,12 +39,14 @@ namespace MicroERP.IDAL
         /// <param name="userID">员工编号</param>
         /// <returns></returns>
         ViewUserLogin GetUserLogin(int userID);
+
         /// <summary>
         /// 获取员工个人资料中可以自由修改的部分
         /// </summary>
         /// <param name="userID">员工编号</param>
         /// <returns></returns>
         ViewUserSelf GetUserSelf(int userID);
+
         /// <summary>
         /// 以员工资料的模型来获取员工信息
         /// </summary>
@@ -56,21 +59,25 @@ namespace MicroERP.IDAL
         /// </summary>
         /// <returns></returns>
         List<InfoUserSelf> GetUserSelfInfos();
+
         /// <summary>
         /// 获取单个员工的全部信息
         /// </summary>
         /// <returns></returns>
         InfoUserSelf GetUserSelfInfos(int userID);
+
         /// <summary>
         /// 获取所有员工信息中可以自由修改的部分
         /// </summary>
         /// <returns></returns>
         List<ViewUserSelf> GetUserSelves();
+
         /// <summary>
         /// 获取所有员工的资料更新记录
         /// </summary>
         /// <returns></returns>
         List<InfoUserUpdate> GetUserUpdateInfos();
+
         /// <summary>
         /// 获取单个用户的资料更新记录
         /// </summary>
