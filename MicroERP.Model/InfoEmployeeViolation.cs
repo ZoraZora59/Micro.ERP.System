@@ -22,6 +22,6 @@ namespace MicroERP.Model
         public DateTime RecordDate { get; set; }
 
         [Required]
-        public virtual InfoUserSelf UserInfo { get; set; }
+        public int UserID { get; set; }
     }
 }

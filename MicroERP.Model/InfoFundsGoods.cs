@@ -23,9 +23,9 @@ namespace MicroERP.Model
         public string FundsNote { get; set; }
 
 
-        public virtual InfoUserSelf CheckUser { get; set; }
-        public virtual InfoGoodsConfirm Confirm { get; set; }
+        public int CheckUserID { get; set; }
+        public int ConfirmID { get; set; }
         [Required]
-        public virtual InfoGoodsOrder GoodsOrder { get; set; }
+        public int GoodsOrderID { get; set; }
     }
 }

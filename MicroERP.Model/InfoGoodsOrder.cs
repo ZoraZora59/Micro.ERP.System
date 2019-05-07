@@ -26,11 +26,11 @@ namespace MicroERP.Model
         public string SaleNote { get; set; }
 
 
-        public virtual InfoFundsGoods Funds { get; set; }
-        public virtual InfoGoodsConfirm GoodsConfirm { get; set; }
-        public virtual InfoGoodsResource GoodsResource { get; set; }
+        public int FundsID { get; set; }
+        public int ConfirmID { get; set; }
+        public int GoodsResourceID { get; set; }
         [Required]
-        public virtual InfoUserSelf ApplyUser { get; set; }
-        public virtual InfoGoodsRejectedOrder RejectedOrder { get; set; }
+        public int ApplyUserID { get; set; }
+        public int RejectedOrderID { get; set; }
     }
 }

@@ -22,8 +22,8 @@ namespace MicroERP.Model
         public DateTime ConfirmDate { get; set; }
 
         [Required]
-        public virtual InfoUserSelf User { get; set; }
+        public int ConfirmerID { get; set; }
         [Required]
-        public virtual InfoGoodsOrder GoodsOrder { get; set; }
+        public int GoodsOrderID { get; set; }
     }
 }

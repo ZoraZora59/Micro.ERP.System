@@ -42,13 +42,5 @@ namespace MicroERP.Model
         [Display(Name = "入职时间")]
         [Column(TypeName = "Date")]
         public DateTime OfferDate { get; set; }
-    
-        public virtual ICollection<InfoEmployeeViolation> Violations { get; set; }
-        public virtual ICollection<InfoFundsGoods> FundsGoodsInfo { get; set; }
-        public virtual ICollection<InfoFundsSalary> FundsSalaryInfo { get; set; }
-        public virtual ICollection<InfoGoodsConfirm> GoodsConfirmInfo { get; set; }
-        public virtual ICollection<InfoGoodsOrder> GoodsOrderInfo { get; set; }
-        public virtual ICollection<InfoGoodsRejectedOrder> GoodsRejectedOrderInfo { get; set; }
-        public virtual ICollection<InfoUserUpdate> Update { get; set; }
     }
 }

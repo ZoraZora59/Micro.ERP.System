@@ -21,10 +21,10 @@ namespace MicroERP.Model
         [Column(TypeName = "Date")]
         public DateTime RejectDate { get; set; }
 
-        public virtual InfoGoodsConfirm Confirm { get; set; }
+        public int ConfirmID { get; set; }
         [Required]
-        public virtual InfoGoodsOrder GoodsOrder { get; set; }
+        public int GoodsOrderID { get; set; }
         [Required]
-        public virtual InfoUserSelf CheckUser { get; set; }
+        public int CheckUserID { get; set; }
     }
 }

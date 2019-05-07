@@ -150,7 +150,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\System\Controllers\GoodsController.cs" />
     <Compile Include="Areas\System\Controllers\HRController.cs" />
     <Compile Include="Areas\System\Controllers\MainController.cs" />
     <Compile Include="Areas\System\SystemAreaRegistration.cs" />
@@ -1939,10 +1938,6 @@
     <Content Include="Areas\System\Content\js\bootstrap.js.map" />
     <Content Include="Areas\System\Content\js\bootstrap.min.js.map" />
     <Content Include="Areas\System\Views\HR\CreateEmployee.cshtml" />
-    <Content Include="Areas\System\Views\Goods\Create.cshtml" />
-    <Content Include="Areas\System\Views\Goods\Details.cshtml" />
-    <Content Include="Areas\System\Views\Goods\Edit.cshtml" />
-    <Content Include="Areas\System\Views\Goods\Index.cshtml" />
     <Content Include="Areas\System\Views\HR\Index.cshtml" />
     <Content Include="Areas\System\Views\HR\UpdateEmployee.cshtml" />
     <None Include="packages.config" />

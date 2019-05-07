@@ -25,8 +25,5 @@ namespace MicroERP.Model
         [Required]
         [Display(Name = "货源")]
         public string GoodsFrom { get; set; }
-
-        [Required]
-        public virtual ICollection<InfoGoodsOrder> GoodsOrderInfo { get; set; }
     }
 }
