@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace MicroERP.IDAL
 {
+    /// <summary>
+    /// 货物数据访问接口类
+    /// </summary>
     public interface IGoodsData
     {
         /// <summary>

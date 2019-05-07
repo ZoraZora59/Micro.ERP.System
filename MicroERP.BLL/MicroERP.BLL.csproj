@@ -72,6 +72,8 @@
   <ItemGroup>
     <Compile Include="App_Code\md5tool.cs" />
     <Compile Include="App_Code\ValidateCode.cs" />
+    <Compile Include="FundsManage.cs" />
+    <Compile Include="GoodsManage.cs" />
     <Compile Include="Models\EmployeePositionModel.cs" />
     <Compile Include="Models\UserLoginForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

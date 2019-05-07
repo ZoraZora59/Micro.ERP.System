@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace MicroERP.IDAL
 {
+    /// <summary>
+    /// 资金数据访问接口类
+    /// </summary>
     public interface IFundsData
     {
         /// <summary>

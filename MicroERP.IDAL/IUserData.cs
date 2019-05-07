@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace MicroERP.IDAL
 {
     /// <summary>
-    /// 员工数据访问类
+    /// 人力资源数据访问接口类
     /// </summary>
     public interface IUserData
     {
