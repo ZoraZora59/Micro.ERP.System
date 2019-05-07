@@ -7,10 +7,11 @@ using MicroERP.BLL;
 using MicroERP.BLL.App_Code;
 using MicroERP.BLL.Models;
 using MicroERP.Model;
+using MicroERP.Web.Areas.System.Models;
 
 namespace MicroERP.Web.Areas.System.Controllers
 {
-    public class MainController : Controller  
+    public class MainController : Controller
     {
         protected override void OnActionExecuting(ActionExecutingContext filterContext)//获取用户登录信息
         {
@@ -33,9 +34,15 @@ namespace MicroERP.Web.Areas.System.Controllers
         {
             ViewBag.RegistMsg = Request.QueryString["RegistMsg"];
             ViewBag.UpdateMsg = Request.QueryString["UpdateMsg"];
-            return View();
+            MainIndexViewModel model = new MainIndexViewModel();
+            return View(model);
         }
-        
+        public JsonResult GetTableData()
+        {
+            string[] jsday = {"开发1日", "开发2日", "开发3日", "开发4日", "开发5日", "开发6日", "开发7日" };
+            int[] jsnum= { 20000,10000,30000,25000,15000,37000,30000 };
+            return Json(new TableViewModel { TDate = jsday,TNumbers=jsnum });
+        }
         public bool GetSessionInfo()//将Session中的登录信息获取到ViewBag的currentLoginInfo
         {
             var currentLoginUser = (ViewUserAsEmployee)Session["loginuser"];

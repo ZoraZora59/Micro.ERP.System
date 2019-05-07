@@ -45,7 +45,7 @@ namespace MicroERP.DAL
         {
             using (MicroERPContext db = new MicroERPContext())
             {
-                return db.UserUpdates.Where(c => c.UserSelf == db.UserSelves.Find(userID)).ToList();
+                return db.UserUpdates.Where(c => c.UserID == userID).ToList();
             }
         }
 
@@ -64,7 +64,8 @@ namespace MicroERP.DAL
                     UserName = c.UserName,
                     UserPosition=c.UserPosition,
                     UserDepartment=c.UserDepartment,
-                    UserStatus=c.UserStatus
+                    UserSalary = c.UserSalary,
+                    UserStatus =c.UserStatus
                 }).ToList().First();
             }
         }
@@ -84,6 +85,7 @@ namespace MicroERP.DAL
                     UserName = c.UserName,
                     UserPosition = c.UserPosition,
                     UserDepartment = c.UserDepartment,
+                    UserSalary = c.UserSalary,
                     UserStatus = c.UserStatus
                 }).ToList();
             }

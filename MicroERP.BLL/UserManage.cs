@@ -43,7 +43,7 @@ namespace MicroERP.BLL
         /// <returns></returns>
         public List<string> GetPositionList()
         {
-            return EmployeeResourceModel.Position;
+            return EmployeeResourceModel.position;
         }
         /// <summary>
         /// 获取静态部门表
@@ -51,7 +51,15 @@ namespace MicroERP.BLL
         /// <returns></returns>
         public List<string> GetDepartmentList()
         {
-            return EmployeeResourceModel.Department;
+            return EmployeeResourceModel.department;
+        }
+        /// <summary>
+        /// 获取静态在职状态表
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetStateList()
+        {
+            return EmployeeResourceModel.state;
         }
         /// <summary>
         /// 匹配单个用户登录信息
@@ -122,7 +130,7 @@ namespace MicroERP.BLL
                 UpdateInto = _SetInto,
                 UpdateTime = DateTime.Now,
                 UpdateFrom = _SetFrom,
-                UserSelf = userData.GetUserSelfInfos(_UserID)
+                UserID = _UserID
             });
         }
     }

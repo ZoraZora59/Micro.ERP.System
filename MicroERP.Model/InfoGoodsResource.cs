@@ -15,13 +15,13 @@ namespace MicroERP.Model
         public string GoodsName { get; set; }
         [Required]
         [Display(Name = "存货量")]
-        public long GoodsQuantity { get; set; }
+        public int GoodsQuantity { get; set; }
         [Required]
         [Display(Name = "计数单位")]
         public string GoodsCountingUnit { get; set; }
         [Required]
         [Display(Name = "单价")]
-        public int GoodsUnitPrice { get; set; }
+        public decimal GoodsUnitPrice { get; set; }
         [Required]
         [Display(Name = "货源")]
         public string GoodsFrom { get; set; }

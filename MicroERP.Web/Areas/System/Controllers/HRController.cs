@@ -52,6 +52,9 @@ namespace MicroERP.Web.Areas.System.Controllers
             else
             {
                 var targetUser = userManage.GetThisUserAsEmployee((int)id);
+                ViewBag.selListDep = DepartmentDropDownList().AsEnumerable();
+                ViewBag.selListPos = PositionDropDownList().AsEnumerable();
+                ViewBag.selListSta = StateDropDownList().AsEnumerable();
                 return View(targetUser);
             }
         }
@@ -89,6 +92,11 @@ namespace MicroERP.Web.Areas.System.Controllers
         {
             UserManage userManage = new UserManage();
             return new SelectList(userManage.GetDepartmentList());
+        }
+        public SelectList StateDropDownList()
+        {
+            UserManage userManage = new UserManage();
+            return new SelectList(userManage.GetStateList());
         }
         #endregion
     }

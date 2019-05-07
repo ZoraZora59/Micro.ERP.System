@@ -12,7 +12,7 @@ namespace MicroERP.Model
         public int OrderID { get; set; }
         [Required]
         [Display(Name = "订货量")]
-        public long GoodsQuantity { get; set; }
+        public int GoodsQuantity { get; set; }
         [Required]
         [Display(Name = "货流目标")]
         public string GoodsTarget { get; set; }
