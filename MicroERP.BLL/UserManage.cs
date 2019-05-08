@@ -70,7 +70,10 @@ namespace MicroERP.BLL
         {
             var userLogin = userData.GetUserLogin(model.UserID);
             if (model.Password == userLogin.UserPassword)
+            {
                 return userData.GetUserAsEmployee(model.UserID);
+            }
+
             return null;
         }
         /// <summary>
@@ -87,7 +90,7 @@ namespace MicroERP.BLL
         /// </summary>
         /// <param name="userAsEmployee"></param>
         /// <returns></returns>
-        public bool UpdateUserAsEmployee(ViewUserAsEmployee userAsEmployee,int UpdateBy , string UpdateNote)
+        public bool UpdateUserAsEmployee(ViewUserAsEmployee userAsEmployee, int UpdateBy, string UpdateNote)
         {
             bool isSuccess = false;
             //构造实体
@@ -98,14 +101,25 @@ namespace MicroERP.BLL
             userSelf.UserStatus = userAsEmployee.UserStatus;
             //登记更新记录
             InfoUserSelf beforeUpdate = userData.GetUserSelfInfos(userAsEmployee.UserID);
-            if(beforeUpdate.UserPosition!=userSelf.UserPosition)
+            if (beforeUpdate.UserPosition != userSelf.UserPosition)
+            {
                 CreateNewUpdateInfo("职位", userSelf.UserPosition, beforeUpdate.UserPosition, UpdateNote, userAsEmployee.UserID, UpdateBy);
+            }
+
             if (beforeUpdate.UserDepartment != userSelf.UserDepartment)
+            {
                 CreateNewUpdateInfo("所属部门", userSelf.UserDepartment, beforeUpdate.UserDepartment, UpdateNote, userAsEmployee.UserID, UpdateBy);
+            }
+
             if (beforeUpdate.UserSalary != userSelf.UserSalary)
+            {
                 CreateNewUpdateInfo("预期薪资", userSelf.UserSalary.ToString(), beforeUpdate.UserSalary.ToString(), UpdateNote, userAsEmployee.UserID, UpdateBy);
+            }
+
             if (beforeUpdate.UserStatus != userSelf.UserStatus)
+            {
                 CreateNewUpdateInfo("在职状态", userSelf.UserStatus, beforeUpdate.UserStatus, UpdateNote, userAsEmployee.UserID, UpdateBy);
+            }
             //开始更新
             userData.UpdateDetail(userSelf);
             return isSuccess;
@@ -120,7 +134,7 @@ namespace MicroERP.BLL
         /// <param name="_UserID"></param>
         /// <param name="_UpdateBy"></param>
         /// <returns></returns>
-        public void CreateNewUpdateInfo(string _UpdateType,string _SetInto ,string _SetFrom,string _UpdateNote, int _UserID,int _UpdateBy)
+        public void CreateNewUpdateInfo(string _UpdateType, string _SetInto, string _SetFrom, string _UpdateNote, int _UserID, int _UpdateBy)
         {
             userData.CreateUpdateRecord(new InfoUserUpdate
             {
@@ -137,9 +151,26 @@ namespace MicroERP.BLL
         {
             return userData.GetThisUserUpdateInfos(userID);
         }
-        public List<InfoUserUpdate> GetAllUpdate()
+        public List<EmployeeUpdateModel> GetAllUpdate()
         {
-            return userData.GetUserUpdateInfos();
+            var data = new List<EmployeeUpdateModel>();
+            foreach (var item in userData.GetUserUpdateInfos())
+            {
+                data.Add(new EmployeeUpdateModel
+                {
+                    UpdateID = item.UpdateID,
+                    UpdateBy = userData.GetUserSelfInfos(item.UpdateBy).UserName,
+                    UpdateFrom = item.UpdateFrom,
+                    UpdateInformation = item.UpdateInformation,
+                    UpdateInto = item.UpdateInto,
+                    UpdateTime = item.UpdateTime.ToLongDateString(),
+                    UpdateType = item.UpdateType,
+                    User = userData.GetUserSelfInfos(item.UserID).UserName,
+                    UserID = item.UserID,
+                    UpdateByID = item.UpdateBy
+                });
+            }
+            return data;
         }
     }
 }

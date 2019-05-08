@@ -76,6 +76,7 @@
     <Compile Include="GoodsManage.cs" />
     <Compile Include="MainManage.cs" />
     <Compile Include="Models\EmployeePositionModel.cs" />
+    <Compile Include="Models\EmployeeUpdateModel.cs" />
     <Compile Include="Models\MainIndexViewModel.cs" />
     <Compile Include="Models\UserLoginForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
