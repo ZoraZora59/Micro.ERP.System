@@ -59,7 +59,6 @@ namespace MicroERP.Web.Areas.System.Controllers
             }
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult UpdateEmployee(ViewUserAsEmployee userAsEmployee, string Note)
         {
             if (ModelState.IsValid)
