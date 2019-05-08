@@ -11,7 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="毕业设计：适用于小微型贸易公司的ERP系统">
     <meta name="author" content="纪玉涵">
-
+    <title>微贸ERP System - @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
     <!-- Custom fonts for this template-->
     <script src="~/Content/jquery-3.3.1.min.js"></script>
     <link href="~/Areas/System/Content/vendor/fontawesome-free/css/all.css" rel="stylesheet" />
@@ -74,7 +76,7 @@
                     <i class="fas fa-user-circle fa-fw"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="#">个人资料</a>
+                    <a class="dropdown-item" href="/System/Main/SelfConfig/">修改个人资料</a>
                     @*<a class="dropdown-item" href="#">Activity Log</a>*@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/Home/Logout/" data-toggle="modal" data-target="#logoutModal">退出登录</a>
@@ -155,7 +157,7 @@
                 </li>
             }
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="/System/Main/SelfConfig/">
                     <i class="fas fa-fw fa-desktop"></i>
                     <span>个人资料设置</span>
                 </a>

@@ -7,18 +7,6 @@
 <body class="bg-light">
     <div id="content-wrapper">
         <div class="container-fluid">
-            @if (ViewBag.RegistMsg != null)
-            {
-                <div id="RegistSuccess" style="display" class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>注册完成！</strong>
-                    <hr>
-                    <p>
-                        该员工已登记完成，请通知他尽快登录系统并修改初始密码。
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                </div>
-            }
             @if (ViewBag.UpdateMsg != null)
             {
                 <div id="RegistSuccess" style="display" class="alert alert-success alert-dismissible fade show" role="alert">

@@ -76,6 +76,7 @@ namespace MicroERP.Web.Areas.System.Controllers
         }
         public ActionResult Index()
         {
+            ViewBag.UpdateMsg = Request.QueryString["UpdateMsg"];
             return View(userManage.GetUserAsEmployees());
         }
         public ActionResult ViolationIndex()

@@ -1,4 +1,7 @@
 ﻿@model IEnumerable<MicroERP.BLL.Models.EmployeeUpdateModel>
+@{
+    ViewBag.Title = "职位变动总览";
+}
 <body class="bg-light">
     <div id="content-wrapper">
         <div class="container-fluid">
@@ -22,7 +25,7 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        @Html.DisplayNameFor(model=>model.UpdateID)
+                                        @Html.DisplayNameFor(model => model.UpdateID)
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.UpdateTime)
@@ -92,7 +95,7 @@
                                 {
                                     <tr>
                                         <td>
-                                            @Html.DisplayFor(modelItem=>item.UpdateID)
+                                            @Html.DisplayFor(modelItem => item.UpdateID)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.UpdateTime)
@@ -121,7 +124,7 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.UpdateBy)
                                         </td>
-                                        
+
                                     </tr>
                                 }
                             </tbody>

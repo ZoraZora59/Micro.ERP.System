@@ -147,10 +147,19 @@ namespace MicroERP.BLL
                 UserID = _UserID
             });
         }
+        /// <summary>
+        /// 获取该员工所有的职位变动记录
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public List<InfoUserUpdate> GetUpdatesByUserID(int userID)
         {
             return userData.GetThisUserUpdateInfos(userID);
         }
+        /// <summary>
+        /// 获取全局的职位变更记录
+        /// </summary>
+        /// <returns></returns>
         public List<EmployeeUpdateModel> GetAllUpdate()
         {
             var data = new List<EmployeeUpdateModel>();
@@ -171,6 +180,32 @@ namespace MicroERP.BLL
                 });
             }
             return data;
+        }
+        /// <summary>
+        /// 获取员工个人资料中可以自有修改的部分
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
+        public ViewUserSelf GetUserSelf(int userID)
+        {
+            return userData.GetUserSelf(userID);
+        }
+        /// <summary>
+        /// 更新员工个人资料
+        /// </summary>
+        /// <param name="userSelf"></param>
+        /// <returns></returns>
+        public bool UpdateUserSelf(ViewUserSelf userSelf)
+        {
+            bool isSuccess=false;
+            var detail = userData.GetUserSelfInfos().Find(c => c.UserID == userSelf.UserID);
+            detail.UserPassword = md5tool.GetMD5(userSelf.UserPassword);
+            detail.UserPhoneNumber = userSelf.PhoneNumber;
+            detail.UserEmail = userSelf.Email;
+            detail.UserAddress = userSelf.Address;
+            userData.UpdateDetail(detail);
+            isSuccess = true;
+            return isSuccess;
         }
     }
 }

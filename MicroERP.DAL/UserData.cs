@@ -119,6 +119,7 @@ namespace MicroERP.DAL
                 return db.UserSelves.Where(c => c.UserID == userID).Select(c => new ViewUserSelf()
                 {
                     UserID = c.UserID,
+                    UserName=c.UserName,
                     Address = c.UserAddress,
                     Email = c.UserEmail,
                     PhoneNumber = c.UserPhoneNumber,

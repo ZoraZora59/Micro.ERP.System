@@ -23,6 +23,7 @@ namespace MicroERP.Web.Areas.System.Controllers
             }
             ViewBag.currentLoginInfo = currentLoginUser;
         }
+        [HttpGet]
         public ActionResult Index()
         {
             ViewBag.RegistMsg = Request.QueryString["RegistMsg"];
@@ -49,11 +50,25 @@ namespace MicroERP.Web.Areas.System.Controllers
             ViewBag.currentLoginInfo = currentLoginUser;
             return true;
         }
-
+        
         public ActionResult ExitLog()//退出登录
         {
             Session["loginuser"] = null;
             return Redirect("/");
+        }
+        [HttpGet]
+        public ActionResult SelfConfig()
+        {
+            UserManage userManage = new UserManage();
+            var currentLoginUser = (ViewUserAsEmployee)Session["loginuser"];
+            return View(userManage.GetUserSelf(currentLoginUser.UserID));
+        }
+        [HttpPost]
+        public ActionResult SelfConfig(ViewUserSelf userSelf)
+        {
+            UserManage userManage = new UserManage();
+            userManage.UpdateUserSelf(userSelf);
+            return RedirectToAction("Index", "Main", new { UpdateMsg = "个人资料更新完成" });
         }
     }
 }

@@ -1941,6 +1941,8 @@
     <Content Include="Areas\System\Views\HR\Index.cshtml" />
     <Content Include="Areas\System\Views\HR\UpdateEmployee.cshtml" />
     <Content Include="Areas\System\Views\HR\UpdateList.cshtml" />
+    <Content Include="Areas\System\Views\HR\ViolationIndex.cshtml" />
+    <Content Include="Areas\System\Views\Main\SelfConfig.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Home\SuccessfulCase.cshtml" />
     <Content Include="Views\Home\Partner.cshtml" />
