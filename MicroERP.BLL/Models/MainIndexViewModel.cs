@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace MicroERP.Web.Areas.System.Models
+﻿namespace MicroERP.Web.Areas.System.Models
 {
     public class MainIndexViewModel
     {

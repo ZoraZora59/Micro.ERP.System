@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MicroERP.Model.InfoUserUpdate>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateFrom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateInto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateInformation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateFrom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateInto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateInformation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UpdateID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.UpdateID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UpdateID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -133,5 +133,13 @@ namespace MicroERP.BLL
                 UserID = _UserID
             });
         }
+        public List<InfoUserUpdate> GetUpdatesByUserID(int userID)
+        {
+            return userData.GetThisUserUpdateInfos(userID);
+        }
+        public List<InfoUserUpdate> GetAllUpdate()
+        {
+            return userData.GetUserUpdateInfos();
+        }
     }
 }

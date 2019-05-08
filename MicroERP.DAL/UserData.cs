@@ -62,10 +62,10 @@ namespace MicroERP.DAL
                 {
                     UserID = c.UserID,
                     UserName = c.UserName,
-                    UserPosition=c.UserPosition,
-                    UserDepartment=c.UserDepartment,
+                    UserPosition = c.UserPosition,
+                    UserDepartment = c.UserDepartment,
                     UserSalary = c.UserSalary,
-                    UserStatus =c.UserStatus
+                    UserStatus = c.UserStatus
                 }).ToList().First();
             }
         }
@@ -90,7 +90,6 @@ namespace MicroERP.DAL
                 }).ToList();
             }
         }
-
         /// <summary>
         /// 获取员工登录信息
         /// </summary>
@@ -100,8 +99,11 @@ namespace MicroERP.DAL
         {
             using (MicroERPContext db = new MicroERPContext())
             {
-                return db.UserSelves.Where(c => c.UserID == userID).Select(c => new ViewUserLogin() {
-                    UserID = c.UserID, UserPassword = c.UserPassword }).ToList().First();
+                return db.UserSelves.Where(c => c.UserID == userID).Select(c => new ViewUserLogin()
+                {
+                    UserID = c.UserID,
+                    UserPassword = c.UserPassword
+                }).ToList().First();
             }
         }
 
@@ -114,9 +116,14 @@ namespace MicroERP.DAL
         {
             using (MicroERPContext db = new MicroERPContext())
             {
-                return db.UserSelves.Where(c => c.UserID == userID).Select(c => new ViewUserSelf() { UserID = c.UserID,
-                    Address=c.UserAddress,Email=c.UserEmail,
-                    PhoneNumber =c.UserPhoneNumber,  UserPassword = c.UserPassword }).ToList().First();
+                return db.UserSelves.Where(c => c.UserID == userID).Select(c => new ViewUserSelf()
+                {
+                    UserID = c.UserID,
+                    Address = c.UserAddress,
+                    Email = c.UserEmail,
+                    PhoneNumber = c.UserPhoneNumber,
+                    UserPassword = c.UserPassword
+                }).ToList().First();
             }
         }
 
@@ -197,7 +204,7 @@ namespace MicroERP.DAL
             }
         }
 
-        
+
     }
 
 }

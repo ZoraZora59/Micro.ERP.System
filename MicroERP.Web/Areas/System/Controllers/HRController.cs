@@ -81,6 +81,10 @@ namespace MicroERP.Web.Areas.System.Controllers
         {
             return View();
         }
+        public ActionResult UpdateList()
+        {
+            return View(userManage.GetAllUpdate());
+        }
         #region 获取下拉表单数据
         public SelectList PositionDropDownList()
         {

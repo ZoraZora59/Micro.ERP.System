@@ -152,7 +152,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\System\Controllers\HRController.cs" />
     <Compile Include="Areas\System\Controllers\MainController.cs" />
-    <Compile Include="Areas\System\Models\MainIndexViewModel.cs" />
     <Compile Include="Areas\System\SystemAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1922,6 +1921,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\System\Models\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\" />
   </ItemGroup>
@@ -1940,6 +1940,7 @@
     <Content Include="Areas\System\Views\HR\CreateEmployee.cshtml" />
     <Content Include="Areas\System\Views\HR\Index.cshtml" />
     <Content Include="Areas\System\Views\HR\UpdateEmployee.cshtml" />
+    <Content Include="Areas\System\Views\HR\UpdateList.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Home\SuccessfulCase.cshtml" />
     <Content Include="Views\Home\Partner.cshtml" />
