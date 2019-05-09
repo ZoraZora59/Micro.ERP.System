@@ -28,6 +28,7 @@ namespace MicroERP.BLL
         {
             TableViewModel data = new TableViewModel();
             var table = goodsData.GetAllGoodsOrder();
+            if(table.Count>13)
             table = table.GetRange(1, 13);
             table = table.OrderByDescending(c => c.OrderTime).ToList();
             int i = 0;

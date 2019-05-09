@@ -1740,6 +1740,7 @@
     <Content Include="Areas\System\Content\vendor\jquery\jquery.slim.min.js" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\jquery-3.3.1.min.js" />
+    <Content Include="Content\Logo.ico" />
     <Content Include="Content\Logo.png" />
     <Content Include="Content\Logo.svg" />
     <Content Include="Content\product.css" />
