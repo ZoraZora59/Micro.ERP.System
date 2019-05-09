@@ -1,6 +1,4 @@
-﻿@model IEnumerable<MicroERP.BLL.Models.ViolationListModel>
-
-@{
+﻿@{
     ViewBag.Title = "违规记录统计";
 }
 <body class="bg-light">
@@ -8,7 +6,7 @@
         <div class="container-fluid">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="index">管理中心</a>
+                    <a href="/System/Main/Index/">管理中心</a>
                 </li>
                 <li class="breadcrumb-item">人事信息管理</li>
                 <li class="breadcrumb-item active">违规记录统计</li>
@@ -25,109 +23,10 @@
             </div>
             <hr />
             <div id="RecordPart" class="container-fluid">
-                <div class="card mb-3">
-                    <div class="card-header">
-                        <i class="fas fa-table"></i>
-                        违规记录总览
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width='100%' cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.RecordID)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.RecordDate)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.ReferID)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.ReferName)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.ViolateFor)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.FundsPunish)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.ManagerID)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.ManagerName)
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.RecordID)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.RecordDate)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.ReferID)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.ReferName)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.ViolateFor)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.FundsPunish)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.ManagerID)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.ManagerName)
-                                        </th>
-                                    </tr>
-                                </tfoot>
-                                <tbody>
-                                    @foreach (var item in Model)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(model => item.RecordID)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(model => item.RecordDate)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(model => item.ReferID)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(model => item.ReferName)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(model => item.ViolateFor)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(model => item.FundsPunish)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(model => item.ManagerID)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(model => item.ManagerName)
-                                            </td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="card-footer small text-muted">Code by JiYuHan</div>
-                </div>
+                
             </div>
             <div id="NewPart" style="display:none" class="container-fluid">
-                <div id="ConnectError" style="display:none" class="alert alert-success alert-dismissible fade show" role="alert">
+                <div id="SubmitSuccess" style="display:none" class="alert alert-success alert-dismissible fade show" role="alert">
                     <strong>创建完成</strong>
                     <hr>
                     <p>
@@ -146,71 +45,82 @@
                         </button>
                 </div>
                 <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="ReferID"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">被执行人编号</font></font></label>
-                            <input type="text" class="form-control" id="ReferID" placeholder="" value="" required="">
-                            <div class="invalid-feedback">
-                                Valid first name is required.
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="ReferName"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">被执行人姓名</font></font></label>
-                            <input type="text" class="form-control" id="ReferName" placeholder="" value="" required="" disabled>
+                    <div class="col-md-10 mb-3">
+                        <label for="ReferID"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">被执行人编号</font></font></label>
+                        <input type="text" class="form-control" id="ReferID" placeholder="" value="" required="">
+                        <div class="invalid-feedback">
+                            Valid first name is required.
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <label for="Reason"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">处罚原因</font></font></label>
-                            <input type="text" class="form-control" id="Reason" placeholder="" value="" required="">
-                            <div class="invalid-feedback">
-                                Valid first name is required.
-                            </div>
+                    <div class="col-md-10 mb-3">
+                        <label for="ReferName"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">被执行人姓名</font></font></label>
+                        <input type="text" class="form-control" id="ReferName" placeholder="" value="" required="" disabled>
+                    </div>
+                    <div class="col-md-10 mb-3">
+                        <label for="Reason"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">处罚原因</font></font></label>
+                        <input type="text" class="form-control" id="Reason" placeholder="" value="" required="">
+                        <div class="invalid-feedback">
+                            处罚原因必须填写.
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-5 mb-3">
-                            <label for="FundsPunish"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">罚款金额</font></font></label>
-                            <input type="text" class="form-control" id="FundsPunish" placeholder="" value="" required="">
-                            <div class="invalid-feedback">
-                                Valid first name is required.
-                            </div>
+                    <div class="col-md-10 mb-3">
+                        <label for="FundsPunish"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">罚款金额</font></font></label>
+                        <input type="text" class="form-control" id="FundsPunish" placeholder="" value="" required="">
+                        <div class="invalid-feedback">
+                            罚款金额因必须填写.
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-3 mb-3">
-                            <label for="RecordDate"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">记录时间</font></font></label>
-                            <input type="text" class="form-control" id="RecordDate" placeholder="" value="" required="">
-                            <div class="invalid-feedback">
-                                Valid first name is required.
-                            </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="RecordDate"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">记录时间</font></font></label>
+                        <input type="date" class="form-control" id="RecordDate" placeholder="" value="" required="">
+                        <div class="invalid-feedback">
+                            违规记录时间必须填写.
                         </div>
                     </div>
                     <hr class="mb-4">
                     <div class="container">
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md">
-                                <input type="submit" value="提交记录" class="btn btn-primary btn-lg btn-block" />
+                                <input type="button" value="提交记录" onclick="SubmitViolation()" class="btn btn-primary btn-lg btn-block" />
                             </div>
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
         </div>
     </div>
 </body>
 <script>
-    function SubmitViolation() {
+    $(document).ready(function () {
         $.ajax({
-            type: 'POST',
+            type: 'GET',
             url: "/System/HR/CreateViolation",
             data: {},
             success: function (data) {
-                $('#RecordPart').html(data);
-                $('#NewPart').html();//TODO:实现局部页面刷新 
+                    $('#RecordPart').html(data);
             },
-            error: function () {
-                $('#ConnectError').show();
+            error: function (data) {
+                $('#RecordPart').html(data);
+            }
+        })
+    });
+    function SubmitViolation() {
+        var refID = $('#ReferID').val();
+        var reason = $('#Reason').val();
+        var punish = $('#FundsPunish').val();
+        var date = $('#RecordDate').val();
+        $.ajax({
+            type: 'POST',
+            url: "/System/HR/CreateViolation",
+            data: { ReferID: refID, Reason: reason, RecordDate: date, Punish:punish},
+            success: function (data) {
+                    $('#RecordPart').html(data);
+                    $('#NewPart').html();//TODO:实现局部页面刷新 
+                    $('#SubmitSuccess').show();     
+            },
+            error: function (data) {
+                $('#RecordPart').html(data);
+                $('#NewPart').html();
             }
         })
     }
@@ -218,16 +128,21 @@
         //输入框的值改变时触发
         $("#ReferID").on("input", function (e) {
             //获取input输入的值
-            console.log(e.delegateTarget.value);
+            var id = e.delegateTarget.value;
+            console.log(id);
             $.ajax({
                 type: 'POST',
                 url: "/System/HR/GetUserName",
-                data: {id:e.delegateTarget.value},
+                data: { id: id },
                 success: function (data) {
-                    $('#ReferName').val = data;
+                    if (data) {
+                        console.log('data:' + data);
+                        $('#ReferName').val(data);
+                    }
                 },
                 error: function () {
-                    $('#ConnectError').show();
+                    console.log('No such ID');
+                    $('#ReferName').val("");
                 }
             })
         });

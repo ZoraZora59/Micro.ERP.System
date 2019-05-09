@@ -1944,6 +1944,7 @@
     <Content Include="Areas\System\Views\HR\UpdateList.cshtml" />
     <Content Include="Areas\System\Views\HR\Violation.cshtml" />
     <Content Include="Areas\System\Views\Main\SelfConfig.cshtml" />
+    <Content Include="Areas\System\Views\HR\CreateViolation.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Home\SuccessfulCase.cshtml" />
     <Content Include="Views\Home\Partner.cshtml" />

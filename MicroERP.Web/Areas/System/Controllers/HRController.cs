@@ -46,7 +46,7 @@ namespace MicroERP.Web.Areas.System.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateViolation(int ReferID,string Reason,string RecordDate,decimal Punish)
+        public ActionResult CreateViolation(int ReferID, string Reason, string RecordDate, decimal Punish)
         {
             var updateBy = (ViewUserAsEmployee)Session["loginuser"];
             DateTime date = DateTime.Parse(RecordDate);
@@ -58,7 +58,13 @@ namespace MicroERP.Web.Areas.System.Controllers
                 ViolateFor = Reason,
                 ManagerID = updateBy.UserID,
             });
-            return View(userManage.GetViolations());
+            ViewBag.Model = userManage.GetViolations();
+            return View();
+        }
+        public ActionResult CreateViolation()
+        {
+            ViewBag.Model = userManage.GetViolations();
+            return View();
         }
 
         public ActionResult UpdateEmployee(int? id)
@@ -89,8 +95,7 @@ namespace MicroERP.Web.Areas.System.Controllers
         }
         public JsonResult GetUserName(int id)
         {
-            return Json(data);
-            return Json(null);
+            return Json(userManage.GetUserName(id));
         }
         public ActionResult Index()
         {
@@ -99,7 +104,8 @@ namespace MicroERP.Web.Areas.System.Controllers
         }
         public ActionResult Violation()
         {
-            return View(userManage.GetViolations());
+            ViewBag.Model = userManage.GetViolations();
+            return View();
         }
         public ActionResult UpdateList()
         {

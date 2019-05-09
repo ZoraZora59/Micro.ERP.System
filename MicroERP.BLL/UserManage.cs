@@ -235,12 +235,29 @@ namespace MicroERP.BLL
                 addOne.ManagerName = userData.GetUserSelf(item.ManagerID).UserName;
                 addOne.RecordID = item.RecordID;
                 addOne.ReferID = item.ReferID;
-                addOne.RecordDate = item.RecordDate;
+                addOne.RecordDate = item.RecordDate.ToLongDateString();
                 addOne.ManagerID = item.ManagerID;
                 addOne.FundsPunish = item.FundsPunish;
                 data.Add(addOne);
             }
             return data;
+        }
+        /// <summary>
+        /// 根据编号获取姓名
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public string GetUserName(int id)
+        {
+            try
+            {
+                var name = userData.GetUserSelf(id).UserName;
+                return name;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }

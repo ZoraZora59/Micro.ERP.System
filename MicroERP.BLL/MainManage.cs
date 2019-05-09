@@ -18,7 +18,7 @@ namespace MicroERP.BLL
         public MainIndexViewModel GetMainIndex()
         {
             MainIndexViewModel data = new MainIndexViewModel();
-            data.EmployeeCount = userData.GetUserAsEmployee().Count();
+            data.EmployeeCount = userData.GetUserAsEmployee().FindAll(c => c.UserStatus == "在职").Count;
             data.OrderCount = goodsData.GetAllGoodsOrder().Count();
             data.TodoCount = goodsData.GetAllGoodsConfirm().Count();
             data.UnderCheckCount = goodsData.GetAllGoodsRejectedOrder().Count();

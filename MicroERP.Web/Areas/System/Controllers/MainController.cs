@@ -61,7 +61,9 @@ namespace MicroERP.Web.Areas.System.Controllers
         {
             UserManage userManage = new UserManage();
             var currentLoginUser = (ViewUserAsEmployee)Session["loginuser"];
-            return View(userManage.GetUserSelf(currentLoginUser.UserID));
+            var data = userManage.GetUserSelf(currentLoginUser.UserID);
+            data.UserPassword = "";
+            return View(data);
         }
         [HttpPost]
         public ActionResult SelfConfig(ViewUserSelf userSelf)

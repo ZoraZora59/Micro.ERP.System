@@ -1,0 +1,110 @@
+﻿@{
+    Layout = null;
+}
+
+<link href="~/Areas/System/Content/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet" />
+<script src="~/Areas/System/Content/vendor/datatables/jquery.dataTables.js"></script>
+<script src="~/Areas/System/Content/vendor/datatables/dataTables.bootstrap4.js"></script>
+<script src="~/Areas/System/Content/js/demo/datatables-demo.js"></script>
+<div id="RecordPart" class="container-fluid">
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-table"></i>
+            违规记录总览
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width='100%' cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>
+                                记录编号
+                            </th>
+                            <th>
+                                登记时间
+                            </th>
+                            <th>
+                                被执行人编号
+                            </th>
+                            <th>
+                                被执行人姓名
+                            </th>
+                            <th>
+                                违规原因
+                            </th>
+                            <th>
+                                罚款金额
+                            </th>
+                            <th>
+                                记录人编号
+                            </th>
+                            <th>
+                                记录人姓名
+                            </th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>
+                                记录编号
+                            </th>
+                            <th>
+                                登记时间
+                            </th>
+                            <th>
+                                被执行人编号
+                            </th>
+                            <th>
+                                被执行人姓名
+                            </th>
+                            <th>
+                                违规原因
+                            </th>
+                            <th>
+                                罚款金额
+                            </th>
+                            <th>
+                                记录人编号
+                            </th>
+                            <th>
+                                记录人姓名
+                            </th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in ViewBag.Model)
+                        {
+                            <tr>
+                                <td>
+                                    @item.RecordID
+                                </td>
+                                <td>
+                                    @item.RecordDate
+                                </td>
+                                <td>
+                                    @item.ReferID
+                                </td>
+                                <td>
+                                    @item.ReferName
+                                </td>
+                                <td>
+                                    @item.ViolateFor
+                                </td>
+                                <td>
+                                    @item.FundsPunish
+                                </td>
+                                <td>
+                                    @item.ManagerID
+                                </td>
+                                <td>
+                                    @item.ManagerName
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer small text-muted">Code by JiYuHan</div>
+    </div>
+</div>
