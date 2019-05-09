@@ -23,18 +23,27 @@
                     <input type="radio" name="options" id="option2" autocomplete="off"> 新增记录
                 </label>
             </div>
+            <hr />
+            <div id="RecordPart" class="container-fluid">
+                this is Record Part
+            </div>
+            <div id="NewPart" style="display:none" class="container">
+                this is New Part
+            </div>
         </div>
     </div>
 </body>
 <script>
     $(function() { 
         $("#RecordCheck").click(function(){
-            alert("触发左边")
+            $("#NewPart").hide();
+            $("#RecordPart").show();
         });
     });
     $(function() { 
         $("#NewRecord").click(function(){
-            alert("触发右边")
+            $("#RecordPart").hide();
+            $("#NewPart").show();
         });
     });
 </script>
