@@ -20,8 +20,11 @@ namespace MicroERP.Model
         [Display(Name = "记录更新时间")]
         [Column(TypeName = "Date")]
         public DateTime RecordDate { get; set; }
-
         [Required]
-        public int UserID { get; set; }
+        [Display(Name ="记录人编号")]
+        public int ManagerID { get; set; }
+        [Required]
+        [Display(Name ="被执行人编号")]
+        public int ReferID { get; set; }
     }
 }

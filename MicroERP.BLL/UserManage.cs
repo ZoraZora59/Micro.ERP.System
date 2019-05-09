@@ -207,5 +207,40 @@ namespace MicroERP.BLL
             isSuccess = true;
             return isSuccess;
         }
+        /// <summary>
+        /// 创建违规记录
+        /// </summary>
+        /// <param name="violation"></param>
+        /// <returns></returns>
+        public bool CreateNewViolation(InfoEmployeeViolation violation)
+        {
+            bool isSuccess = false;
+            userData.CreateViolation(violation);
+            isSuccess = true;
+            return isSuccess;
+        }
+        /// <summary>
+        /// 获取全部违规记录
+        /// </summary>
+        /// <returns></returns>
+        public List<ViolationListModel> GetViolations()
+        {
+            List<ViolationListModel> data = new List<ViolationListModel>();
+            var temp = userData.GetEmployeeViolations();
+            foreach(var item in temp)
+            {
+                ViolationListModel addOne = new ViolationListModel();
+                addOne.ViolateFor = item.ViolateFor;
+                addOne.ReferName = userData.GetUserSelf(item.ReferID).UserName;
+                addOne.ManagerName = userData.GetUserSelf(item.ManagerID).UserName;
+                addOne.RecordID = item.RecordID;
+                addOne.ReferID = item.ReferID;
+                addOne.RecordDate = item.RecordDate;
+                addOne.ManagerID = item.ManagerID;
+                addOne.FundsPunish = item.FundsPunish;
+                data.Add(addOne);
+            }
+            return data;
+        }
     }
 }

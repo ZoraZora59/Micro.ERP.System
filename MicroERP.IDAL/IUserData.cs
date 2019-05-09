@@ -83,5 +83,23 @@ namespace MicroERP.IDAL
         /// </summary>
         /// <returns></returns>
         List<InfoUserUpdate> GetThisUserUpdateInfos(int userID);
+
+        /// <summary>
+        /// 创建违规记录
+        /// </summary>
+        /// <param name="violation"></param>
+        void CreateViolation(InfoEmployeeViolation violation);
+
+        /// <summary>
+        /// 获取全部违规记录
+        /// </summary>
+        /// <returns></returns>
+        List<InfoEmployeeViolation> GetEmployeeViolations();
+
+        /// <summary>
+        /// 删除一条违规记录
+        /// </summary>
+        /// <param name="RecordID"></param>
+        void RemoveViolation(int RecordID);
     }
 }

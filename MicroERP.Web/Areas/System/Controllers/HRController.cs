@@ -1,5 +1,6 @@
 ﻿using MicroERP.BLL;
 using MicroERP.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -44,6 +45,22 @@ namespace MicroERP.Web.Areas.System.Controllers
             return RedirectToAction("Index", "Main", new { RegistMsg = "新员工注册完毕" });
         }
 
+        [HttpPost]
+        public ActionResult CreateViolation(int ReferID,string Reason,string RecordDate,decimal Punish)
+        {
+            var updateBy = (ViewUserAsEmployee)Session["loginuser"];
+            DateTime date = DateTime.Parse(RecordDate);
+            userManage.CreateNewViolation(new InfoEmployeeViolation
+            {
+                ReferID = ReferID,
+                RecordDate = date,
+                FundsPunish = Punish,
+                ViolateFor = Reason,
+                ManagerID = updateBy.UserID,
+            });
+            return View(userManage.GetViolations());
+        }
+
         public ActionResult UpdateEmployee(int? id)
         {
             if (id == null)
@@ -70,18 +87,19 @@ namespace MicroERP.Web.Areas.System.Controllers
             }
             return View(userAsEmployee);
         }
-        public ActionResult UpdateViolation()
+        public JsonResult GetUserName(int id)
         {
-            return View();
+            return Json(data);
+            return Json(null);
         }
         public ActionResult Index()
         {
             ViewBag.UpdateMsg = Request.QueryString["UpdateMsg"];
             return View(userManage.GetUserAsEmployees());
         }
-        public ActionResult ViolationIndex()
+        public ActionResult Violation()
         {
-            return View();
+            return View(userManage.GetViolations());
         }
         public ActionResult UpdateList()
         {

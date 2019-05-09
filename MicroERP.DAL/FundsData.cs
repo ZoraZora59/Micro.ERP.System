@@ -67,7 +67,7 @@ namespace MicroERP.DAL
 
         List<InfoEmployeeViolation> IFundsData.GetEmployeeViolationInfosByUserID(int userID)
         {
-            return db.EmployeeViolations.Where(c => c.UserID == userID).ToList();
+            return db.EmployeeViolations.Where(c => c.ReferID == userID).ToList();
         }
 
         InfoFundsGoods IFundsData.GetFundsGoodsByRecordID(int fundsGoodsInfoID)
@@ -111,7 +111,7 @@ namespace MicroERP.DAL
             before.RecordDate = employeeViolationInfo.RecordDate;
             before.ViolateFor = employeeViolationInfo.ViolateFor;
             before.FundsPunish = employeeViolationInfo.FundsPunish;
-            before.UserID = employeeViolationInfo.UserID;
+            before.ReferID = employeeViolationInfo.ReferID;
             db.SaveChanges();
         }
     }

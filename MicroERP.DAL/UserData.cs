@@ -37,6 +37,31 @@ namespace MicroERP.DAL
         }
 
         /// <summary>
+        /// 创建违规信息记录
+        /// </summary>
+        /// <param name="violation"></param>
+        void IUserData.CreateViolation(InfoEmployeeViolation violation)
+        {
+            using (MicroERPContext db = new MicroERPContext())
+            {
+                db.EmployeeViolations.Add(violation);
+                db.SaveChanges();
+            }
+        }
+
+        /// <summary>
+        /// 获取全部违规记录
+        /// </summary>
+        /// <returns></returns>
+        List<InfoEmployeeViolation> IUserData.GetEmployeeViolations()
+        {
+            using (MicroERPContext db = new MicroERPContext())
+            {
+                return db.EmployeeViolations.ToList();
+            }
+        }
+
+        /// <summary>
         /// 获取单个用户的资料更新记录
         /// </summary>
         /// <param name="userID"></param>
@@ -181,6 +206,19 @@ namespace MicroERP.DAL
             using (MicroERPContext db = new MicroERPContext())
             {
                 return db.UserUpdates.ToList();
+            }
+        }
+
+        /// <summary>
+        /// 删除单条违规记录
+        /// </summary>
+        /// <param name="RecordID"></param>
+        void IUserData.RemoveViolation(int RecordID)
+        {
+            using (MicroERPContext db = new MicroERPContext())
+            {
+                db.EmployeeViolations.Remove(db.EmployeeViolations.Find(RecordID));
+                db.SaveChanges();
             }
         }
 
