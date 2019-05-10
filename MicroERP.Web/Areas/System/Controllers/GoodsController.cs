@@ -62,15 +62,15 @@ namespace MicroERP.Web.Areas.System.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateOrder(InfoGoodsOrder infoGoodsOrder)
+        public ActionResult CreateOrder(InfoGoodsOrder infoGoodsOrder)
         {
+            var updateBy = (ViewUserAsEmployee)Session["loginuser"];
+            infoGoodsOrder.ApplyUserID = updateBy.UserID;
             if (ModelState.IsValid)
             {
-                db.GoodsOrders.Add(infoGoodsOrder);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                goodsManage.CreateOrder(infoGoodsOrder);
             }
-
+            ViewBag.selListTyp = OrderTypeDropDownList().AsEnumerable();
             return View(infoGoodsOrder);
         }
 
@@ -137,7 +137,7 @@ namespace MicroERP.Web.Areas.System.Controllers
         #region 下拉表单
         public SelectList OrderTypeDropDownList()
         {
-            return new SelectList(goodsManage.GetOrderType());
+            return new SelectList(goodsManage.GetOrderTypeList());
         }
         #endregion
 

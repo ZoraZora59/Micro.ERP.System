@@ -135,34 +135,37 @@
                                 {
                                     <tr>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.GoodsQuantity)
+                                            @Html.DisplayFor(model => item.OrderID)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.GoodsTarget)
+                                            @Html.DisplayFor(model => item.OrderType)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.GoodsUnitPrice)
+                                            @Html.DisplayFor(model => item.GoodsTarget)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.OrderTime)
+                                            @Html.DisplayFor(model => item.GoodsUnitPrice)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.SaleNote)
+                                            @Html.DisplayFor(model => item.GoodsQuantity)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.FundsID)
+                                            @Html.DisplayFor(model => item.OrderTime)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.ConfirmID)
+                                            @Html.DisplayFor(model => item.FundsID)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.GoodsResourceID)
+                                            @Html.DisplayFor(model => item.ConfirmID)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.ApplyUserID)
+                                            @Html.DisplayFor(model => item.GoodsResourceID)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.RejectedOrderID)
+                                            @Html.DisplayFor(model => item.ApplyUserID)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => item.RejectedOrderID)
                                         </td>
                                         <td>
                                             @Html.ActionLink("Edit", "Edit", new { id = item.OrderID }) |
@@ -171,7 +174,6 @@
                                         </td>
                                     </tr>
                                 }
-
                             </table>
 
                         </div>
