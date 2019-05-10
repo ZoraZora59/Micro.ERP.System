@@ -1,0 +1,89 @@
+﻿@model MicroERP.Model.InfoGoodsOrder
+
+@{
+    ViewBag.Title = "Create";
+}
+<body class="bg-light">
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index">管理中心</a>
+                    </li>
+                    <li class="breadcrumb-item active">货流信息总览</li>
+                </ol>
+                <div class="container">
+                    <div class="py-0 text-center">
+                        <img class="d-block mx-auto mb-4" src="~/Content/Logo.png" alt="" width="72" height="72" />
+                        <h2>
+                            <font style="vertical-align: inherit;">货流单申请</font>
+                        </h2>
+                        <p class="lead">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">请仔细填写所有字段。</font>
+                                <font style="vertical-align: inherit;"><span style="font-weight:bold">表单提交后除非被驳回否则无法修改。</span></font>
+                            </font>
+                        </p>
+                    </div>
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                @Html.LabelFor(model => model.OrderType, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="col-md mb-3">
+                                    @Html.DropDownListFor(model => model.OrderType, ViewBag.selListTyp as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                @Html.LabelFor(model => model.GoodsTarget, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="col-md mb-3">
+                                    @Html.EditorFor(model => model.GoodsTarget, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.GoodsTarget, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            @Html.LabelFor(model => model.GoodsQuantity, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md mb-3">
+                                @Html.EditorFor(model => model.GoodsQuantity, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.GoodsQuantity, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            @Html.LabelFor(model => model.GoodsUnitPrice, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md mb-3">
+                                @Html.EditorFor(model => model.GoodsUnitPrice, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.GoodsUnitPrice, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.OrderTime, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md mb-3">
+                                @Html.EditorFor(model => model.OrderTime, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                                @Html.ValidationMessageFor(model => model.OrderTime, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SaleNote, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md mb-3">
+                                @Html.EditorFor(model => model.SaleNote, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.SaleNote, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</body>

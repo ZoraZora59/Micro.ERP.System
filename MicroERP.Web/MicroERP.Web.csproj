@@ -1948,7 +1948,7 @@
     <Content Include="Areas\System\Views\HR\Violation.cshtml" />
     <Content Include="Areas\System\Views\Main\SelfConfig.cshtml" />
     <Content Include="Areas\System\Views\HR\CreateViolation.cshtml" />
-    <Content Include="Areas\System\Views\Goods\Create.cshtml" />
+    <Content Include="Areas\System\Views\Goods\CreateOrder.cshtml" />
     <Content Include="Areas\System\Views\Goods\Delete.cshtml" />
     <Content Include="Areas\System\Views\Goods\Details.cshtml" />
     <Content Include="Areas\System\Views\Goods\Edit.cshtml" />

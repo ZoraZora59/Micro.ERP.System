@@ -79,6 +79,7 @@
     <Compile Include="Models\EmployeeUpdateModel.cs" />
     <Compile Include="Models\GoodsListModel.cs" />
     <Compile Include="Models\MainIndexViewModel.cs" />
+    <Compile Include="Models\TypesOfGoodsModel.cs" />
     <Compile Include="Models\UserLoginForm.cs" />
     <Compile Include="Models\ViolationListModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

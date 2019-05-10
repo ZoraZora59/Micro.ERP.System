@@ -49,5 +49,9 @@ namespace MicroERP.BLL
             }
             return data;
         }
+        public List<string> GetOrderType()
+        {
+            return TypesOfGoodsModel.orderType;
+        }
     }
 }

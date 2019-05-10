@@ -4,95 +4,95 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div class="container-fluid">
+    <div>
+        <h4>InfoGoodsOrder</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.GoodsQuantity)
+            </dt>
 
-<div>
-    <h4>InfoGoodsOrder</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.GoodsQuantity)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.GoodsQuantity)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.GoodsQuantity)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.GoodsTarget)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.GoodsTarget)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.GoodsTarget)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.GoodsTarget)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.GoodsUnitPrice)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.GoodsUnitPrice)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.GoodsUnitPrice)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.GoodsUnitPrice)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.OrderTime)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.OrderTime)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OrderTime)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.OrderTime)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SaleNote)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SaleNote)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SaleNote)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SaleNote)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.FundsID)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FundsID)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FundsID)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.FundsID)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ConfirmID)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ConfirmID)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ConfirmID)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ConfirmID)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.GoodsResourceID)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.GoodsResourceID)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.GoodsResourceID)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.GoodsResourceID)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ApplyUserID)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ApplyUserID)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ApplyUserID)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ApplyUserID)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.RejectedOrderID)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.RejectedOrderID)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RejectedOrderID)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.RejectedOrderID)
-        </dd>
-
-    </dl>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.OrderID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

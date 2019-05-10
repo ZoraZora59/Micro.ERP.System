@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
+﻿using MicroERP.BLL;
 using MicroERP.DAL;
 using MicroERP.Model;
-using MicroERP.BLL;
+using System.Data.Entity;
+using System.Linq;
+using System.Net;
+using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace MicroERP.Web.Areas.System.Controllers
 {
     public class GoodsController : Controller
     {
-        private MicroERPContext db = new MicroERPContext();
-        private GoodsManage goodsManage;
+        private readonly MicroERPContext db = new MicroERPContext();
+        private readonly GoodsManage goodsManage;
         public GoodsController(GoodsManage manage)
         {
             goodsManage = manage;
@@ -57,14 +53,16 @@ namespace MicroERP.Web.Areas.System.Controllers
             return View(infoGoodsOrder);
         }
 
-        public ActionResult Create()
+        [HttpGet]
+        public ActionResult CreateOrder()
         {
+            ViewBag.selListTyp= OrderTypeDropDownList().AsEnumerable();
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "OrderID,GoodsQuantity,GoodsTarget,GoodsUnitPrice,OrderTime,SaleNote,FundsID,ConfirmID,GoodsResourceID,ApplyUserID,RejectedOrderID")] InfoGoodsOrder infoGoodsOrder)
+        public async Task<ActionResult> CreateOrder(InfoGoodsOrder infoGoodsOrder)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +91,7 @@ namespace MicroERP.Web.Areas.System.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "OrderID,GoodsQuantity,GoodsTarget,GoodsUnitPrice,OrderTime,SaleNote,FundsID,ConfirmID,GoodsResourceID,ApplyUserID,RejectedOrderID")] InfoGoodsOrder infoGoodsOrder)
+        public async Task<ActionResult> Edit(InfoGoodsOrder infoGoodsOrder)
         {
             if (ModelState.IsValid)
             {
@@ -136,5 +134,12 @@ namespace MicroERP.Web.Areas.System.Controllers
             }
             base.Dispose(disposing);
         }
+        #region 下拉表单
+        public SelectList OrderTypeDropDownList()
+        {
+            return new SelectList(goodsManage.GetOrderType());
+        }
+        #endregion
+
     }
 }
