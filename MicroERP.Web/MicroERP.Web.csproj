@@ -150,6 +150,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\System\Controllers\GoodsController.cs" />
     <Compile Include="Areas\System\Controllers\HRController.cs" />
     <Compile Include="Areas\System\Controllers\MainController.cs" />
     <Compile Include="Areas\System\SystemAreaRegistration.cs" />
@@ -1744,6 +1745,8 @@
     <Content Include="Content\Logo.png" />
     <Content Include="Content\Logo.svg" />
     <Content Include="Content\product.css" />
+    <Content Include="Content\tinyLogo.png" />
+    <Content Include="Content\tinyLogo.svg" />
     <Content Include="Content\trade.jpg" />
     <Content Include="Content\translateelement.css" />
     <Content Include="favicon.ico" />
@@ -1945,9 +1948,13 @@
     <Content Include="Areas\System\Views\HR\Violation.cshtml" />
     <Content Include="Areas\System\Views\Main\SelfConfig.cshtml" />
     <Content Include="Areas\System\Views\HR\CreateViolation.cshtml" />
+    <Content Include="Areas\System\Views\Goods\Create.cshtml" />
+    <Content Include="Areas\System\Views\Goods\Delete.cshtml" />
+    <Content Include="Areas\System\Views\Goods\Details.cshtml" />
+    <Content Include="Areas\System\Views\Goods\Edit.cshtml" />
+    <Content Include="Areas\System\Views\Goods\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Home\SuccessfulCase.cshtml" />
-    <Content Include="Views\Home\Partner.cshtml" />
     <Content Include="Views\Home\LetsDo.cshtml" />
   </ItemGroup>
   <ItemGroup>

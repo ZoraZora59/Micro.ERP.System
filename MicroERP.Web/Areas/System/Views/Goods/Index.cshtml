@@ -1,0 +1,183 @@
+﻿@model IEnumerable<MicroERP.BLL.Models.GoodsListModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+<body class="bg-light">
+    <div id="content-wrapper">
+        @if (ViewBag.ErrorMsg != null)
+        {
+            <div id="Error" style="" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>有问题！</strong>
+                <hr>
+                <p>
+                    @ViewBag.ErrorMsg
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+        }
+        @if (ViewBag.SuccessMsg != null)
+        {
+            <div id="Success" style="" class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>完成！</strong>
+                <hr>
+                <p>
+                    @ViewBag.SuccessMsg
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+        }
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="container-fluid">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index">管理中心</a>
+                    </li>
+                    <li class="breadcrumb-item active">货流信息总览</li>
+                </ol>
+            </div>
+            <div class="container-fluid">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fas fa-table"></i>
+                        货流单据总览
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.OrderID)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.OrderType)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.GoodsTarget)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.GoodsUnitPrice)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.GoodsQuantity)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.OrderTime)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.FundsID)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ConfirmID)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.GoodsResourceID)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ApplyUserID)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.RejectedOrderID)
+                                        </th>
+                                        <th>
+                                            审查
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.OrderID)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.OrderType)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.GoodsTarget)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.GoodsUnitPrice)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.GoodsQuantity)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.OrderTime)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.FundsID)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ConfirmID)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.GoodsResourceID)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ApplyUserID)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.RejectedOrderID)
+                                        </th>
+                                        <th>
+                                            审查
+                                        </th>
+                                    </tr>
+                                </tfoot>
+
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.GoodsQuantity)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.GoodsTarget)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.GoodsUnitPrice)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.OrderTime)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SaleNote)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FundsID)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ConfirmID)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.GoodsResourceID)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ApplyUserID)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.RejectedOrderID)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.OrderID }) |
+                                            @Html.ActionLink("Details", "Details", new { id = item.OrderID }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.OrderID })
+                                        </td>
+                                    </tr>
+                                }
+
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>

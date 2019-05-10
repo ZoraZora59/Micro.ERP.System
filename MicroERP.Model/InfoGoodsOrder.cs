@@ -11,6 +11,9 @@ namespace MicroERP.Model
         [Display(Name = "货单编号")]
         public int OrderID { get; set; }
         [Required]
+        [Display(Name = "货单类型")]
+        public string OrderType { get; set; }
+        [Required]
         [Display(Name = "订货量")]
         public int GoodsQuantity { get; set; }
         [Required]

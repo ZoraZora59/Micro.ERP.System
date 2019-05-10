@@ -17,5 +17,37 @@ namespace MicroERP.BLL
         {
             goodsData = new GoodsData();
         }
+        /// <summary>
+        /// 获取货单总记录表
+        /// </summary>
+        /// <returns></returns>
+        public List<GoodsListModel> GetOrderList()
+        {
+            var data = new List<GoodsListModel>();
+            var sourceData = goodsData.GetAllGoodsOrder();
+            IUserData uData = new UserData();
+            foreach(var item in sourceData)
+            {
+                var addOne = new GoodsListModel
+                {
+                    ApplyUserID = item.ApplyUserID,
+                    ApplyUserName = uData.GetUserSelf(item.ApplyUserID).UserName,
+                    ConfirmID = item.ConfirmID == 0 ? "未审核" : item.ConfirmID.ToString(),
+                    FundsID = item.FundsID == 0 ? "未发放" : item.FundsID.ToString(),
+                    GoodsQuantity = item.GoodsQuantity,
+                    GoodsResourceID = item.GoodsResourceID,
+                    GoodsResourceName = goodsData.GetGoodsResource(item.GoodsResourceID).GoodsName,
+                    GoodsTarget = item.GoodsTarget,
+                    GoodsUnitPrice = item.GoodsUnitPrice,
+                    OrderID = item.OrderID,
+                    OrderTime = item.OrderTime.ToShortDateString(),
+                    OrderType = item.OrderType,
+                    RejectedOrderID = item.RejectedOrderID == 0 ? "无" : item.RejectedOrderID.ToString(),
+                    SaleNote = item.SaleNote
+                };
+                data.Add(addOne);
+            }
+            return data;
+        }
     }
 }

@@ -25,12 +25,12 @@ namespace MicroERP.Web
 
             #region 数据库初始化
             //自动建立数据库
-            //using (var Context = new MicroERPContext())
+            //using (var context = new MicroERPContext())
             //{
             //    try
             //    {
-            //        Context.Database.CreateIfNotExists();
-            //        Context.UserSelves.Add(new Model.InfoUserSelf
+            //        context.Database.CreateIfNotExists();
+            //        context.UserSelves.Add(new Model.InfoUserSelf
             //        {
             //            UserName = "左拉",
             //            UserPassword = "922729261802228716010917272521672032050",
@@ -43,7 +43,7 @@ namespace MicroERP.Web
             //            UserAddress = "湖南省株洲市天元区泰山路湖南工业大学",
             //            OfferDate = DateTime.Now
             //        });
-            //        Context.SaveChanges();
+            //        context.SaveChanges();
             //    }
             //    catch (Exception)
             //    {
@@ -51,5 +51,5 @@ namespace MicroERP.Web
             //}
             #endregion
         }
-	}
+    }
 }
