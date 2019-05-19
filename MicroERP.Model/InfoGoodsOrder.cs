@@ -21,7 +21,7 @@ namespace MicroERP.Model
         public string GoodsTarget { get; set; }
         [Required]
         [Display(Name = "货物单价")]
-        public int GoodsUnitPrice { get; set; }
+        public decimal GoodsUnitPrice { get; set; }
         [Display(Name = "下单时间")]
         [Column(TypeName = "Date")]
         public DateTime OrderTime { get; set; }

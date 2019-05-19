@@ -18,7 +18,7 @@ namespace MicroERP.Model
         [Required]
         [Display(Name = "相关记录类型")]
         public string AttachedType { get; set; }
-        [Required]
+        
         [Display(Name = "相关记录编号")]
         public int AttachedID { get; set; }
     }

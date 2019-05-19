@@ -23,7 +23,7 @@ namespace MicroERP.Model
 
         [Required]
         public int ConfirmerID { get; set; }
-        [Required]
+        
         public int GoodsOrderID { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace MicroERP.Model
         [Display(Name = "货物编号")]
         public int GoodsID { get; set; }
         [Required]
-        [Display(Name = "货单名")]
+        [Display(Name = "货物名")]
         public string GoodsName { get; set; }
         [Required]
         [Display(Name = "存货量")]

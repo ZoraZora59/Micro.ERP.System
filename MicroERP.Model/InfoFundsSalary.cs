@@ -24,7 +24,6 @@ namespace MicroERP.Model
         public DateTime PayWagesDate { get; set; }
 
     
-        public int ViolationID { get; set; }
         [Required]
         public int UserID { get; set; }
     }

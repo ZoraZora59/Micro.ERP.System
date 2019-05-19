@@ -20,11 +20,12 @@ namespace MicroERP.Model
         [Display(Name = "重审时间")]
         [Column(TypeName = "Date")]
         public DateTime RejectDate { get; set; }
-
+        [Display(Name = "确认单编号")]
         public int ConfirmID { get; set; }
         [Required]
         public int GoodsOrderID { get; set; }
         [Required]
+        [Display(Name = "审核人编号")]
         public int CheckUserID { get; set; }
     }
 }
