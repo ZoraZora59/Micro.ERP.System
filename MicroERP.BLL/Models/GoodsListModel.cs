@@ -18,7 +18,7 @@ namespace MicroERP.BLL.Models
         [Display(Name = "货流目标")]
         public string GoodsTarget { get; set; }
         [Display(Name = "货物单价")]
-        public int GoodsUnitPrice { get; set; }
+        public decimal GoodsUnitPrice { get; set; }
         [Display(Name = "下单时间")]
         public string OrderTime { get; set; }
         [Display(Name = "备注信息")]

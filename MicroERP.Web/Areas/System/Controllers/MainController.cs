@@ -1,5 +1,6 @@
 ﻿using MicroERP.BLL;
 using MicroERP.Model;
+using MicroERP.Web.Areas.System.Models;
 using System.Web.Mvc;
 
 namespace MicroERP.Web.Areas.System.Controllers
