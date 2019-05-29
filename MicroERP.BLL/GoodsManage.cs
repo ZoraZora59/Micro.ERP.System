@@ -68,5 +68,10 @@ namespace MicroERP.BLL
             isSuccess = true;
             return isSuccess;
         }
+        public bool UpdateOrder(InfoGoodsOrder order)
+        {
+            bool isSuccess = false;
+            return isSuccess;
+        }
     }
 }
