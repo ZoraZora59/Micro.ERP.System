@@ -168,9 +168,9 @@
                                             @Html.DisplayFor(model => item.RejectedOrderID)
                                         </td>
                                         <td>
-                                            @Html.ActionLink("Edit", "Edit", new { id = item.OrderID }) |
-                                            @Html.ActionLink("Details", "Details", new { id = item.OrderID }) |
-                                            @Html.ActionLink("Delete", "Delete", new { id = item.OrderID })
+                                            @Html.ActionLink("修改", "Edit", new { id = item.OrderID }) |
+                                            @Html.ActionLink("审批", "Details", new { id = item.OrderID }) |
+                                            @Html.ActionLink("作废", "Delete", new { id = item.OrderID })
                                         </td>
                                     </tr>
                                 }
